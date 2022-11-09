@@ -1,5 +1,7 @@
 # SnakeGame
 
+## Test
+This is a test by Janos
 
 
 ## Getting started
