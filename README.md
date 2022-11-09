@@ -1,7 +1,11 @@
 # SnakeGame
 
+
 ## Test
 This is a test by Janos
+
+kaisa is testing 
+
 
 ## Getting started
 
