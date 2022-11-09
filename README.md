@@ -6,6 +6,7 @@ This is a test by Janos
 
 kaisa is testing 
 banana
+testing once more
 
 ## Getting started
 
