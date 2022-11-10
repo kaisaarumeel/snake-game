@@ -9,7 +9,7 @@ banana
 testing once more
 test jitish
 
-你好
+你好，你最近怎麼樣？
 
 ## Getting started
 
