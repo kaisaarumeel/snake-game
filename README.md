@@ -12,6 +12,8 @@ Ashor is testing
 
 你好，你最近怎麼樣？
 
+Hey testing again
+
 ## Getting started
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.
