@@ -1,2 +1,0 @@
-information about the global git commands
-Setting up Github is easy.
