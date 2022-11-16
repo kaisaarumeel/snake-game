@@ -1,2 +1,6 @@
 .DS_Store
 .idea
+*.class
+out/production/Team Programming/group13/snakegame/hello-view.fxml
+module-info.java
+group13/snakegame/hello-view.fxml
