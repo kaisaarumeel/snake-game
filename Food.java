@@ -4,38 +4,11 @@ import java.util.ArrayList;
 
 public class Food {
 
-
-    static int width = 30;
-    static int height = 30;
-    static int dimension = 20;
-    int mouseX;
-    int mouseY;
-
-    static final int panelsize = (width * height) / (dimension * dimension);
-    int positionX;
-    int positionY;
-    ArrayList<Rectangle> snakeBody;
-
-
-
-    public void spawnMouse() { //Spawns the mouse randomly
-
-        boolean onSnake = false;
-
-        //if mouse spawn position is at snake position then redo the process until you find a pos not on snake
-        while (onSnake == false) {
-            mouseX = (int) (Math.random() * (width*dimension));
-            mouseY = (int) (Math.random() * (height*dimension));
-            for (Rectangle rectangle : snakeBody) {
-                if (rectangle.getX() == mouseX && rectangle.getY() == mouseY) {
-                    onSnake = false;
-                } else {
-                    onSnake = true;
-                }
-            }
-        }
-    }
-
+    private int mouseX;
+    private int mouseY;
+/*
+    private int positionX;
+    private int positionY;
 
     public int getPositionX() {
         return positionX;
@@ -44,6 +17,8 @@ public class Food {
     public int getPositionY() {
         return positionY;
     }
+
+ */
 
     public int getMouseX() {
         return mouseX;

@@ -1,3 +1,5 @@
+import javafx.scene.shape.Rectangle;
+
 public class Field {
     private final int height;
     private final int width;
@@ -17,7 +19,7 @@ public class Field {
 
     public void move(){             //The mechanism of moving the snake on the field is adding a new rectangle in front
         if (direction != null){     //of the snake head, considering the snake direction. Lastly removing the last rectangle.
-            snake.grow();                                                 //Moving has the same principle as grow() method,
+            grow();                 //Moving has the same principle as grow() method,
             snake.getSnakeBody().remove(snake.getSnakeBody().get(snake.getSnakeBody().size()-1));    //but we remove the last rectangle of the snake.
         }
     }
@@ -56,7 +58,35 @@ public class Field {
     public void left(){
         if(direction != Direction.RIGHT){
             direction = Direction.LEFT;
-        }    }
+        }
+    }
+
+    public void grow(){                                             //When the snake eat food
+        Rectangle rectangle = new Rectangle(width,height);          //First create the new rectangle that will be added.
+
+        if (direction.equals(Direction.UP)){                        //Check where the snake is moving; to add the new rectangle to the right place.
+            rectangle.setX(snake.getSnakeBody().get(0).getX());                //If snake is moving up the new rectangle will have the same x-coordinate as the head of the snake,
+            rectangle.setY(snake.getSnakeBody().get(0).getY() - height);       //but the y-coordinate will be one square above the head of the snake.
+
+
+        } else if (direction.equals(Direction.DOWN)) {
+            rectangle.setX(snake.getSnakeBody().get(0).getX());
+            rectangle.setY(snake.getSnakeBody().get(0).getY() + height);
+
+
+        } else if (direction.equals(Direction.RIGHT)) {
+            rectangle.setX(snake.getSnakeBody().get(0).getX() + width);
+            rectangle.setY(snake.getSnakeBody().get(0).getY());
+
+        } else {
+            rectangle.setX(snake.getSnakeBody().get(0).getX() - width);
+            rectangle.setY(snake.getSnakeBody().get(0).getY());
+
+        }
+
+        snake.getSnakeBody().add(0, rectangle);           //After figuring out the right coordinate for the new rectangle, it will be added to the arraylist.
+    }
+
 
 
     public void spawnMouse() { //Spawns the mouse randomly

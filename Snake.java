@@ -35,31 +35,6 @@ public class Snake{
         snakeBody.add(rectangle);
 
     }
-    public void grow(){                                             //When the snake eat food
-        Rectangle rectangle = new Rectangle(width,height);          //First create the new rectangle that will be added.
-
-        if (direction.equals(Direction.UP)){                        //Check where the snake is moving; to add the new rectangle to the right place.
-            rectangle.setX(snakeBody.get(0).getX());                //If snake is moving up the new rectangle will have the same x-coordinate as the head of the snake,
-            rectangle.setY(snakeBody.get(0).getY() - height);       //but the y-coordinate will be one square above the head of the snake.
-
-
-        } else if (direction.equals(Direction.DOWN)) {
-            rectangle.setX(snakeBody.get(0).getX());
-            rectangle.setY(snakeBody.get(0).getY() + height);
-
-
-        } else if (direction.equals(Direction.RIGHT)) {
-            rectangle.setX(snakeBody.get(0).getX() + width);
-            rectangle.setY(snakeBody.get(0).getY());
-
-        } else {
-            rectangle.setX(snakeBody.get(0).getX() - width);
-            rectangle.setY(snakeBody.get(0).getY());
-
-        }
-
-        snakeBody.add(0, rectangle);           //After figuring out the right coordinate for the new rectangle, it will be added to the arraylist.
-    }
 
 
     //The attributes with no getters/setters, means the snake class won't have, but it will get them from other classes.
@@ -74,7 +49,6 @@ public class Snake{
     public Direction getDirection() {
         return direction;
     }
-
 
     public void setDirection(Direction direction) {
         this.direction = direction;
