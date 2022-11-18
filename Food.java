@@ -1,6 +1,5 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionListener;
+
+import javafx.scene.shape.Rectangle;
 import java.util.ArrayList;
 
 public class Food {
@@ -13,8 +12,8 @@ public class Food {
     int mouseY;
 
     static final int panelsize = (width * height) / (dimension * dimension);
-    int[] positionX = new int[panelsize];
-    int[] positionY = new int[panelsize];
+    int positionX;
+    int positionY;
     ArrayList<Rectangle> snakeBody;
 
 
@@ -38,10 +37,27 @@ public class Food {
     }
 
 
-    public void eatMouse() { //if snakes position is at mouse position then spawn the mouse again
+    public int getPositionX() {
+        return positionX;
+    }
 
-        if ((positionX[0] == mouseX) && (positionY[0] == mouseY)) {
-            spawnMouse();
-        }
+    public int getPositionY() {
+        return positionY;
+    }
+
+    public int getMouseX() {
+        return mouseX;
+    }
+
+    public int getMouseY() {
+        return mouseY;
+    }
+
+    public void setMouseX(int mouseX) {
+        this.mouseX = mouseX;
+    }
+
+    public void setMouseY(int mouseY) {
+        this.mouseY = mouseY;
     }
 }
