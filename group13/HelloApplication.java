@@ -1,4 +1,4 @@
-package group13.snakegame;
+package group13;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

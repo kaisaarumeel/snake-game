@@ -1,4 +1,4 @@
-package group13.snakegame;
+package group13.frontend;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
