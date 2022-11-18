@@ -1,6 +1,7 @@
 public class Field {
     private final int height;
     private final int width;
+
     private final int dimension = 20; //number of squares
     private Direction direction;
     private Food food;
