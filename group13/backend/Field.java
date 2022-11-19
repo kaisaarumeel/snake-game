@@ -65,7 +65,7 @@ public class Field {
     public void moveSnake() {
         //of the snake head, considering the snake direction. Lastly removing the last rectangle.
         if (snake.getDirection() != null){
-            for (int i = snake.getBodyLength(); i > 0; i--) {
+            for (int i = snake.getBodyLength() - 1; i > 0; i--) {
                 Integer[] bodyPart = snake.getBodyPart(i);
                 bodyPart[0] = snake.getBodyPart(i - 1)[0];
                 bodyPart[1] = snake.getBodyPart(i - 1)[1];
@@ -112,10 +112,10 @@ public class Field {
         boolean onSnake = false;
 
         //if mouse spawn position is at snake position then redo the process until you find a pos not on snake
-        while (onSnake == false) {
+            while (onSnake == false) {
 
-            int row = (int) random.nextInt(700 / TILE_SIZE) * TILE_SIZE;
-            int column = (int) random.nextInt(700 / TILE_SIZE) * TILE_SIZE;
+                int row = (int) random.nextInt(700 / TILE_SIZE) * TILE_SIZE;
+                int column = (int) random.nextInt(700 / TILE_SIZE) * TILE_SIZE;
             this.mouse = new Mouse(row, column);
             for (int i = 0; i < snake.getBodyLength(); i++) {
                 ArrayList<Integer[]> snakeBody = snake.getSnakeBody();
@@ -134,6 +134,14 @@ public class Field {
 
     public int getMouseColumn() {
         return this.mouse.getColumn();
+    }
+
+    public int getSnakeLength() {
+        return this.snake.getBodyLength();
+    }
+
+    public Integer[] getSnakeBodyPart(int bodyPartNum) {
+        return this.snake.getBodyPart(bodyPartNum);
     }
 
     /*public void eatMouse() { //if snakes position is at mouse position then spawn the mouse again

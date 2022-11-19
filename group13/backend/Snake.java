@@ -12,8 +12,9 @@ public class Snake{
 
 
     public Snake(){
-        Integer[][] initialCoordinates = new Integer[][]{{14, 14}, {14, 15}, {14, 16}};
+        Integer[][] initialCoordinates = new Integer[][]{{14, 14}, {15, 14}, {16, 14}};
         this.snakeBody = new ArrayList<>(Arrays.asList(initialCoordinates[0], initialCoordinates[1], initialCoordinates[2]));
+        this.direction = Direction.LEFT;
     }
 
     //Getter method for the body length.

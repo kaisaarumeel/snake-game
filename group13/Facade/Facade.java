@@ -19,5 +19,17 @@ public class Facade {
     public int getMouseColumn() {
         return this.field.getMouseColumn();
     }
+
+    public int getSnakeLength() {
+        return this.field.getSnakeLength();
+    }
+
+    public Integer[] getSnakeBodyPart(int bodyPartNum) {
+        return this.field.getSnakeBodyPart(bodyPartNum);
+    }
+
+    public void moveSnake() {
+        this.field.moveSnake();
+    }
 }
 
