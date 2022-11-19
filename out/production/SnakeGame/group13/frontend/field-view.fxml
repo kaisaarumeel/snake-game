@@ -6,6 +6,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="group13.frontend.FieldController">
-</VBox>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.Group?>
+<Group xmlns:fx="http://javafx.com/fxml" fx:controller="group13.frontend.FieldController">
+    <Rectangle fx:id="mouse" fill="RED" height="25" width="25"/>
+</Group>

@@ -128,6 +128,14 @@ public class Field {
         }
     }
 
+    public int getMouseRow() {
+        return this.mouse.getRow();
+    }
+
+    public int getMouseColumn() {
+        return this.mouse.getColumn();
+    }
+
     /*public void eatMouse() { //if snakes position is at mouse position then spawn the mouse again
 
         if ((snake.getSnakeBody().get(0).getX() == mouse.getRow()) && (snake.getSnakeBody().get(0).getY() == mouse.getColumn())) {
