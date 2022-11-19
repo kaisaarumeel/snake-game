@@ -1,4 +1,4 @@
-module group13.snakegame {
+module group13 {
     requires javafx.controls;
     requires javafx.fxml;
 
