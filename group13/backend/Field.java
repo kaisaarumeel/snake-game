@@ -1,6 +1,5 @@
 package group13.backend;
 
-import group13.backend.Direction;
 import javafx.scene.shape.Rectangle;
 
 public class Field {
@@ -9,7 +8,7 @@ public class Field {
 
     private final int dimension = 20; //number of squares
     private Direction direction;
-    private Food food;
+    private Mouse mouse;
 
     private Snake snake;
 
@@ -17,7 +16,7 @@ public class Field {
         this.height = height;
         this.width = width;
         this.snake = new Snake();
-        this.food = food;
+        this.mouse = mouse;
     }
 
     public void move(){             //The mechanism of moving the snake on the field is adding a new rectangle in front
@@ -98,10 +97,10 @@ public class Field {
 
         //if mouse spawn position is at snake position then redo the process until you find a pos not on snake
         while (onSnake == false) {
-            food.setMouseX((int) (Math.random() * (width * dimension)));
-            food.setMouseY((int) (Math.random() * (height*dimension)));
+            mouse.setRow((int) (Math.random() * (width * dimension)));
+            mouse.setColumn((int) (Math.random() * (height*dimension)));
             for (int i = 0; i < snake.getSnakeBody().size(); i++) {
-                if (snake.getSnakeBody().get(i).getX() == food.getMouseX() && snake.getSnakeBody().get(i).getY()  == food.getMouseY()) {
+                if (snake.getSnakeBody().get(i).getX() == mouse.getRow() && snake.getSnakeBody().get(i).getY()  == mouse.getColumn()) {
                     onSnake = false;
                 } else {
                     onSnake = true;
@@ -112,7 +111,7 @@ public class Field {
 
     public void eatMouse() { //if snakes position is at mouse position then spawn the mouse again
 
-        if ((snake.getSnakeBody().get(0).getX() == food.getMouseX()) && (snake.getSnakeBody().get(0).getY() == food.getMouseY())) {
+        if ((snake.getSnakeBody().get(0).getX() == mouse.getRow()) && (snake.getSnakeBody().get(0).getY() == mouse.getColumn())) {
             spawnMouse();
         }
     }
