@@ -1,7 +1,7 @@
 package group13.Facade;
 
 public class Facade {
-    private testingField field;
+    /*private testingField field;
 
     public Facade(){
         newField();
@@ -9,6 +9,6 @@ public class Facade {
 
     public void newField(){
         field= new testingField();
-    }
+    }*/
 }
 

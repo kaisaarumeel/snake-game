@@ -18,6 +18,18 @@ public class Snake{
 
     //Getter method for the body length.
     public int getBodyLength(){return snakeBody.size();}
+    public ArrayList<Integer[]> getSnakeBody() {
+        return snakeBody;
+    }
+
+    public Integer[] getBodyPart(int bodyPartNum) {
+        return snakeBody.get(bodyPartNum);
+    }
+
+    public void setBodyPart(int bodyPartNum, int newRow, int newColumn) {
+        Integer[] newBodyPart = new Integer[]{newRow, newColumn};
+        this.snakeBody.set(bodyPartNum, newBodyPart);
+    }
 
     public void grow(int row, int column){
         this.snakeBody.add(new Integer[]{row, column});
