@@ -18,7 +18,7 @@ public class FieldController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        FACADE.newField();
+        //FACADE.newField();
 
        // startGame();
         //playgame
