@@ -1,3 +1,6 @@
+package group13.backend;
+
+import group13.backend.Direction;
 import javafx.scene.shape.Rectangle;
 import java.util.ArrayList;
 
@@ -12,8 +15,8 @@ public class Snake{
     private final int dimension = 20;
     private Direction direction;    //Will store the direction which the snake is moving.
 
-    private final int startPositionX = (width * height) / 2 - width;    //Snake spawn at the middle of the window when the game begins.
-    private final int startPositionY = (height * height) /2 - height;   //Snake spawn at the middle of the window when the game begins.
+    private final int startPositionX = (width * height) / 2 - width;    //group13.backend.Snake spawn at the middle of the window when the game begins.
+    private final int startPositionY = (height * height) /2 - height;   //group13.backend.Snake spawn at the middle of the window when the game begins.
 
     private ArrayList <Rectangle> snakeBody;
 

@@ -1,3 +1,4 @@
+package group13.backend;
 
 import javafx.scene.shape.Rectangle;
 import java.util.ArrayList;

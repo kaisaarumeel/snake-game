@@ -1,3 +1,6 @@
+package group13.backend;
+
+import group13.backend.Direction;
 import javafx.scene.shape.Rectangle;
 
 public class Field {
