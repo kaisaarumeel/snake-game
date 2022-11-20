@@ -29,6 +29,12 @@ public class SnakeGameMain extends Application {
                 case DOWN -> field.down();
                 case LEFT -> field.left();
                 case RIGHT -> field.right();
+                case ENTER -> {
+                    if (loop.isPaused()) {
+                        reset();
+                        (new Thread(loop)).start();
+                    }
+                }
             }
         });
 
