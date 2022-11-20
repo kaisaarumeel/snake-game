@@ -114,14 +114,16 @@ public class Field {
 
     public void update() {
         moveSnake();
+        eatMouse();
     }
 
-    /*public void eatMouse() { //if snakes position is at mouse position then spawn the mouse again
-
-        if ((snake.getSnakeBody().get(0).getX() == mouse.getRow()) && (snake.getSnakeBody().get(0).getY() == mouse.getColumn())) {
-            spawnMouse();
+    public void eatMouse() {
+    //if snake head position is at mouse position then spawn the mouse again
+        if (snake.getSnakeBody().get(0).equals(mouse.getTile())) {
+          this.grow();
+          spawnMouse();
         }
-    }*/
+    }
 
 
 }
