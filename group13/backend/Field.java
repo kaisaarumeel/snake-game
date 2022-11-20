@@ -3,8 +3,6 @@ package group13.backend;
 import java.util.Random;
 
 public class Field {
-    private static final int HEIGHT = 28;
-    private static final int WIDTH = 28;
     private static final int TILE_SIZE = 25;
     private static final Random random = new Random();
 
@@ -70,18 +68,18 @@ public class Field {
         Tile tile;
 
         if (snake.getDirection().equals(Direction.UP)){                        //Check where the snake is moving; to add the new rectangle to the right place.
-            tile = new Tile(snake.getSnakeBody().get(0).getX(), snake.getSnakeBody().get(0).getY() - 25);             //If snake is moving up the new rectangle will have the same x-coordinate as the head of the snake,
+            tile = new Tile(snake.getSnakeBody().get(0).getX(), snake.getSnakeBody().get(0).getY() - TILE_SIZE);             //If snake is moving up the new rectangle will have the same x-coordinate as the head of the snake,
 
 
         } else if (snake.getDirection().equals(Direction.DOWN)) {
-            tile = new Tile(snake.getSnakeBody().get(0).getX(), snake.getSnakeBody().get(0).getY() + 25);
+            tile = new Tile(snake.getSnakeBody().get(0).getX(), snake.getSnakeBody().get(0).getY() + TILE_SIZE);
 
 
         } else if (snake.getDirection().equals(Direction.RIGHT)) {
-            tile = new Tile(snake.getSnakeBody().get(0).getX() + 25, snake.getSnakeBody().get(0).getY());
+            tile = new Tile(snake.getSnakeBody().get(0).getX() + TILE_SIZE, snake.getSnakeBody().get(0).getY());
 
         } else {
-            tile = new Tile(snake.getSnakeBody().get(0).getX() - 25, snake.getSnakeBody().get(0).getY());
+            tile = new Tile(snake.getSnakeBody().get(0).getX() - TILE_SIZE, snake.getSnakeBody().get(0).getY());
 
         }
 
