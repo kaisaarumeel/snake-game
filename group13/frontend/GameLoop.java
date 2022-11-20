@@ -4,7 +4,7 @@ import group13.backend.Field;
 import javafx.scene.canvas.GraphicsContext;
 
 public class GameLoop implements Runnable {
-    public static final int SPEED = 5;
+    public static final int SPEED = 10;
     private Field field;
     private GraphicsContext context;
     private double interval;
@@ -21,7 +21,7 @@ public class GameLoop implements Runnable {
 
     @Override
     public void run() {
-        while(running && !paused) {
+        while(running && !paused && this.field.gameOver() == false) {
             double time = System.currentTimeMillis();
 
             field.update();

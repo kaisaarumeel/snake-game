@@ -9,6 +9,7 @@ public class Field {
     private Mouse mouse;
 
     private Snake snake;
+    private boolean gameOver;
 
     public Field(){
         Tile[] initialTiles = new Tile[]{new Tile(350, 350), new Tile(375, 350), new Tile(400, 350)};
@@ -26,18 +27,18 @@ public class Field {
     }
 
 
-    /*public boolean die(){
-        if(snake.getSnakeBody().get(0).getX() >= width* snake.getDimension() || snake.getSnakeBody().get(0).getX() <= 0 || snake.getSnakeBody().get(0).getY() >= height* snake.getDimension() || snake.getSnakeBody().get(0).getY() <= 0){
-            return true;
+    public boolean gameOver(){
+        if(snake.getSnakeBody().get(0).getX() >= 700  || snake.getSnakeBody().get(0).getX() < 0 || snake.getSnakeBody().get(0).getY() >= 700 || snake.getSnakeBody().get(0).getY() < 0){
+             return true;
         }   // Check if the head of the snake collide with the border, if yes return true.
 
-        for (int i = 1; i < snake.getSnakeBody().size(); i++){
+       for (int i = 1; i < snake.getSnakeBody().size(); i++){
             if(snake.getSnakeBody().get(0).getX() == snake.getSnakeBody().get(i).getX() && snake.getSnakeBody().get(0).getY() == snake.getSnakeBody().get(i).getY()){
                 return true;
             }        // Check if the head of the snake collide with the snake body, if yes return true.
         }
         return false;
-    }*/
+    }
 
 
     public void up(){                           //Changes the direction of the snake.
@@ -66,9 +67,9 @@ public class Field {
 
     public void grow() {
         Tile tile;
-
-        if (snake.getDirection().equals(Direction.UP)){                        //Check where the snake is moving; to add the new rectangle to the right place.
-            tile = new Tile(snake.getSnakeBody().get(0).getX(), snake.getSnakeBody().get(0).getY() - TILE_SIZE);             //If snake is moving up the new rectangle will have the same x-coordinate as the head of the snake,
+//Check where the snake is moving; to add the new rectangle to the right place.
+        if (snake.getDirection().equals(Direction.UP)){
+            tile = new Tile(snake.getSnakeBody().get(0).getX(), snake.getSnakeBody().get(0).getY() - TILE_SIZE);
 
 
         } else if (snake.getDirection().equals(Direction.DOWN)) {
@@ -83,7 +84,7 @@ public class Field {
 
         }
 
-        snake.getSnakeBody().add(0, tile);           //After figuring out the right coordinate for the new rectangle, it will be added to the arraylist.
+        snake.getSnakeBody().add(0, tile);
     }
 
 
@@ -113,6 +114,7 @@ public class Field {
     public void update() {
         moveSnake();
         eatMouse();
+        gameOver();
     }
 
     public void eatMouse() {
