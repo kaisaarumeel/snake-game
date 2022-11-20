@@ -24,6 +24,9 @@ public class SnakeGameMain extends Application {
 
         canvas.setFocusTraversable(true);
         canvas.setOnKeyPressed(e -> {
+            if (loop.isKeyDown()) {
+                return;
+            }
             switch (e.getCode()) {
                 case UP -> field.up();
                 case DOWN -> field.down();
@@ -36,6 +39,7 @@ public class SnakeGameMain extends Application {
                     }
                 }
             }
+            loop.setKeyDown();
         });
 
         reset();
