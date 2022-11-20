@@ -8,12 +8,15 @@ public class GameLoop implements Runnable {
     private final Field field;
     private final GraphicsContext context;
     private final double interval;
-    private boolean paused = false;
+    private boolean paused;
+    private boolean keyDown;
 
     public GameLoop(Field field, GraphicsContext context) {
         this.field = field;
         this.context = context;
-        interval = 1000 / SPEED;
+        this.interval = 1000 / SPEED;
+        this.paused = false;
+        this.keyDown = false;
     }
 
     @Override
@@ -35,11 +38,20 @@ public class GameLoop implements Runnable {
                 } catch (InterruptedException ignore) {
                 }
             }
+            keyDown = false;
         }
     }
 
     public boolean isPaused(){
         return this.paused;
+    }
+
+    public boolean isKeyDown() {
+        return keyDown;
+    }
+
+    public void setKeyDown() {
+        keyDown = true;
     }
 
 }
