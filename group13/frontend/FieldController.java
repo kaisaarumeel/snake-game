@@ -1,11 +1,9 @@
+/*
 package group13.frontend;
 
-import group13.Facade.Facade;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
-import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -15,6 +13,7 @@ import java.util.ResourceBundle;
 public class FieldController implements Initializable {
 
     final static Facade FACADE = new Facade();
+    // final GameLoop loop = new GameLoop();
     @FXML
     private Group window;
     @FXML
@@ -41,7 +40,6 @@ public class FieldController implements Initializable {
     }
 
     public void drawSnakeBodyPart(int X, int Y) {
-        System.out.println(X + Y);
         Rectangle snakeBodyPart = new Rectangle();
         snakeBodyPart.setFill(Color.GREEN);
         snakeBodyPart.setWidth(25);
@@ -51,17 +49,9 @@ public class FieldController implements Initializable {
         window.getChildren().add(snakeBodyPart);
     }
     public void startGame(){
-        while(true) {
-            drawSnake();
-            FACADE.moveSnake();
-            try {
-                Thread.sleep(500);
-            } catch (Exception e ) {
-                e.printStackTrace();
-            }
-
-        }
+        drawSnake();
+        // (new Thread(loop)).start();
 
     }
 
-}
+}*/

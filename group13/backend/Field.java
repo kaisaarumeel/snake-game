@@ -1,8 +1,5 @@
 package group13.backend;
 
-import javafx.scene.shape.Rectangle;
-
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Field {
@@ -16,11 +13,17 @@ public class Field {
     private Snake snake;
 
     public Field(){
-        this.snake = new Snake();
+        Tile[] initialTiles = new Tile[]{new Tile(350, 350), new Tile(375, 350), new Tile(400, 350)};
+        this.snake = new Snake(initialTiles);
         this.spawnMouse();
     }
     //The mechanism of moving the snake on the field is adding a new rectangle in front
-    public void move(){
+    public void moveSnake(){
+        if (snake.getDirection() != null){     //of the snake head, considering the snake direction. Lastly removing the last rectangle.
+            grow();                 //Moving has the same principle as grow() method,
+            snake.getSnakeBody().remove(snake.getSnakeBody().get(snake.getSnakeBody().size()-1));    //but we remove the last rectangle of the snake.
+        }
+
 
     }
 
@@ -54,7 +57,8 @@ public class Field {
     public void right(){
         if(snake.getDirection() != Direction.LEFT){
             snake.setDirection(Direction.RIGHT);
-        }    }
+        }
+    }
 
     public void left(){
         if(snake.getDirection() != Direction.RIGHT){
@@ -62,86 +66,54 @@ public class Field {
         }
     }
 
-    public void moveSnake() {
-        //of the snake head, considering the snake direction. Lastly removing the last rectangle.
-        if (snake.getDirection() != null){
-            for (int i = snake.getBodyLength() - 1; i > 0; i--) {
-                Integer[] bodyPart = snake.getBodyPart(i);
-                bodyPart[0] = snake.getBodyPart(i - 1)[0];
-                bodyPart[1] = snake.getBodyPart(i - 1)[1];
-                snake.setBodyPart(i, bodyPart[0], bodyPart[1]);
-            }
-        }
+    public void grow() {
+        Tile tile;
 
-        if (snake.getDirection().equals(Direction.UP)){
-            //Check where the snake is moving; to add the new rectangle to the right place.
-            Integer[] head = snake.getBodyPart(0);
-            int X = head[0];
-            int Y = head[1] - TILE_SIZE;
-            snake.setBodyPart(0, X, Y);
-
+        if (snake.getDirection().equals(Direction.UP)){                        //Check where the snake is moving; to add the new rectangle to the right place.
+            tile = new Tile(snake.getSnakeBody().get(0).getX(), snake.getSnakeBody().get(0).getY() - 25);             //If snake is moving up the new rectangle will have the same x-coordinate as the head of the snake,
 
 
         } else if (snake.getDirection().equals(Direction.DOWN)) {
-            Integer[] head = snake.getBodyPart(0);
-            int X = head[0];
-            int Y = head[1] + TILE_SIZE;
-            snake.setBodyPart(0, X, Y);
+            tile = new Tile(snake.getSnakeBody().get(0).getX(), snake.getSnakeBody().get(0).getY() + 25);
 
 
         } else if (snake.getDirection().equals(Direction.RIGHT)) {
-            Integer[] head = snake.getBodyPart(0);
-            int X = head[0] - TILE_SIZE;
-            int Y = head[1];
-            snake.setBodyPart(0, X, Y);
+            tile = new Tile(snake.getSnakeBody().get(0).getX() + 25, snake.getSnakeBody().get(0).getY());
 
         } else {
-            Integer[] head = snake.getBodyPart(0);
-            int X = head[0] + TILE_SIZE;
-            int Y = head[1];
-            snake.setBodyPart(0, X, Y);
+            tile = new Tile(snake.getSnakeBody().get(0).getX() - 25, snake.getSnakeBody().get(0).getY());
 
         }
 
+        snake.getSnakeBody().add(0, tile);           //After figuring out the right coordinate for the new rectangle, it will be added to the arraylist.
     }
 
 
 
-    public void spawnMouse() { //Spawns the mouse randomly
-
-        boolean onSnake = false;
+    //Spawns the mouse randomly
+    public void spawnMouse() {
 
         //if mouse spawn position is at snake position then redo the process until you find a pos not on snake
-            while (onSnake == false) {
+        Tile tile;
+        do {
+            int x = (int) random.nextInt(700 / TILE_SIZE) * TILE_SIZE;
+            int y = (int) random.nextInt(700 / TILE_SIZE) * TILE_SIZE;
 
-                int row = (int) random.nextInt(700 / TILE_SIZE) * TILE_SIZE;
-                int column = (int) random.nextInt(700 / TILE_SIZE) * TILE_SIZE;
-            this.mouse = new Mouse(row, column);
-            for (int i = 0; i < snake.getBodyLength(); i++) {
-                ArrayList<Integer[]> snakeBody = snake.getSnakeBody();
-                if (snakeBody.get(i)[0] == mouse.getRow() && snakeBody.get(i)[1]  == mouse.getColumn()) {
-                    onSnake = false;
-                } else {
-                    onSnake = true;
-                }
-            }
-        }
+            tile = new Tile(x, y);
+        } while (this.snake.getSnakeBody().contains(tile));
+        this.mouse = new Mouse(tile);
     }
 
-    public int getMouseRow() {
-        return this.mouse.getRow();
+    public Tile getMouseTile() {
+        return this.mouse.getTile();
     }
 
-    public int getMouseColumn() {
-        return this.mouse.getColumn();
+    public Snake getSnake() {
+        return this.snake;
     }
 
-    public int getSnakeLength() {
-        return this.snake.getBodyLength();
-    }
-
-    public Integer[] getSnakeBodyPart(int bodyPartNum) {
-        return this.snake.getBodyPart(bodyPartNum);
+    public void update() {
+        moveSnake();
     }
 
     /*public void eatMouse() { //if snakes position is at mouse position then spawn the mouse again
