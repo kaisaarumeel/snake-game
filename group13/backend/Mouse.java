@@ -2,27 +2,17 @@ package group13.backend;
 
 public class Mouse {
 
-    private int row;
-    private int column;
+    private Tile tile;
 
-    public Mouse(int row, int column){
-        this.row = row;
-        this.column = column;
+    public Mouse(Tile tile){
+        this.tile = tile;
     }
 
-    public int getRow() {
-        return this.row;
+    public Tile getTile() {
+        return tile;
     }
 
-    public int getColumn() {
-        return this.column;
-    }
-
-    public void setRow (int newRow) {
-        this.row = row;
-    }
-
-    public void setColumn(int newColummn) {
-        this.column = newColummn;
+    public void setTile(Tile tile) {
+        this.tile = tile;
     }
 }
