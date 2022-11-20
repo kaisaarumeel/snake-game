@@ -10,6 +10,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class SnakeGameMain extends Application {
@@ -34,7 +35,11 @@ public class SnakeGameMain extends Application {
                 case RIGHT -> field.right();
                 case ENTER -> {
                     if (loop.isPaused()) {
-                        reset();
+                        try {
+                            reset();
+                        } catch (FileNotFoundException ex) {
+                            throw new RuntimeException(ex);
+                        }
                         (new Thread(loop)).start();
                     }
                 }
@@ -57,7 +62,7 @@ public class SnakeGameMain extends Application {
         (new Thread(loop)).start();
     }
 
-    private void reset() {
+    private void reset() throws FileNotFoundException {
         field = new Field();
         loop = new GameLoop(field, context);
         Painter.paint(field, context);

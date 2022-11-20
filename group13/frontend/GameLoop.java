@@ -3,6 +3,8 @@ package group13.frontend;
 import group13.backend.Field;
 import javafx.scene.canvas.GraphicsContext;
 
+import java.io.FileNotFoundException;
+
 public class GameLoop implements Runnable {
     public static final int SPEED = 10;
     private final Field field;
@@ -28,7 +30,11 @@ public class GameLoop implements Runnable {
             double time = System.currentTimeMillis();
 
             field.update();
-            Painter.paint(field, context);
+            try {
+                Painter.paint(field, context);
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
 
             time = System.currentTimeMillis() - time;
 
