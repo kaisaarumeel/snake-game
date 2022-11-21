@@ -3,8 +3,6 @@ package group13.frontend;
 import group13.backend.Field;
 import javafx.scene.canvas.GraphicsContext;
 
-import java.io.FileNotFoundException;
-
 public class GameLoop implements Runnable {
     public static final int SPEED = 10;
     private final Field field;
@@ -32,7 +30,7 @@ public class GameLoop implements Runnable {
             field.update();
             try {
                 Painter.paint(field, context);
-            } catch (FileNotFoundException e) {
+            } catch (Exception e) {
                 throw new RuntimeException(e);
             }
 
