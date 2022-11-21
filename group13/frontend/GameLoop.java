@@ -24,6 +24,7 @@ public class GameLoop implements Runnable {
         while(!paused) {
             if (this.field.gameOver()) {
                 paused = true;
+                break;
             }
             double time = System.currentTimeMillis();
 
