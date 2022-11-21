@@ -33,7 +33,7 @@ public class Field {
         }   // Check if the head of the snake collide with the border, if yes return true.
 
        for (int i = 1; i < snake.getSnakeBody().size(); i++){
-            if(snake.getSnakeBody().get(0).getX() == snake.getSnakeBody().get(i).getX() && snake.getSnakeBody().get(0).getY() == snake.getSnakeBody().get(i).getY()){
+            if(snake.getSnakeBody().get(0).equals(snake.getSnakeBody().get(i))){
                 return true;
             }        // Check if the head of the snake collide with the snake body, if yes return true.
         }
