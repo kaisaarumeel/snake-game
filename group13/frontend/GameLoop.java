@@ -61,6 +61,9 @@ public class GameLoop implements Runnable {
     public boolean isPaused(){
         return this.paused;
     }
+    public void setPaused(boolean value) {
+        this.paused = value;
+    }
 
     public boolean isKeyDown() {
         return keyDown;
