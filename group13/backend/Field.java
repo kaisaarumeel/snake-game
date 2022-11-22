@@ -112,8 +112,11 @@ public class Field {
     }
 
     public void update() {
+        // Move the snake by one tile
         moveSnake();
+        // Check if snake ate mouse
         eatMouse();
+        // Check whether game is over
         gameOver();
     }
 

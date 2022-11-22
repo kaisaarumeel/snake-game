@@ -8,36 +8,39 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import java.io.FileInputStream;
 
-public class Painter {
+public class Renderer {
     public static Image mouseImage;
-    public static void paint(Field field, GraphicsContext gc) throws Exception {
+    public static void render(Field field, GraphicsContext gc) throws Exception {
         // paint the background black
         gc.setFill(Color.BLACK);
         gc.fillRect(0,0, 700, 700);
 
-       /* // paint the food
+       /* // render the food
         gc.setFill(Color.PINK);
         paintTile(field.getMouseTile(), gc);*/
 
         //setting the image for the mouse
-        mouseImageTile(field, field.getMouseTile(), gc);
+        renderMouseImageTile(field, field.getMouseTile(), gc);
 
-        //paint the snake
+        //render the snake
         Snake snake = field.getSnake();
         gc.setFill(Color.WHITE);
-        snake.getSnakeBody().forEach(tile -> paintTile(tile, gc));
+        snake.getSnakeBody().forEach(tile -> renderTile(tile, gc));
     }
 
-    private static void paintTile(Tile tile, GraphicsContext gc) {
+    private static void renderTile(Tile tile, GraphicsContext gc) {
         gc.fillRect(tile.getX(), tile.getY(), 25, 25);
     }
 
-    private static void mouseImageTile(Field field, Tile tile, GraphicsContext gc) throws Exception {
+    private static void renderMouseImageTile(Field field, Tile tile, GraphicsContext gc) throws Exception {
+        // First checks if the image for the mouse has been loaded or not
         if (mouseImage == null) {
+            // If not, loads the image
             FileInputStream inputstream = new FileInputStream("group13/frontend/assets/mouse.png");
             mouseImage = new Image(inputstream, 30, 30, false, false);
             inputstream.close();
         }
+        // Renders the image
         gc.drawImage(mouseImage, field.getMouseTile().getX(), field.getMouseTile().getY());
     }
 }
