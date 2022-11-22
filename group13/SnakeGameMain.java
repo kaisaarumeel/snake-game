@@ -2,7 +2,7 @@ package group13;
 
 import group13.backend.Field;
 import group13.frontend.GameLoop;
-import group13.frontend.Painter;
+import group13.frontend.Renderer;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -62,7 +62,7 @@ public class SnakeGameMain extends Application {
     private void reset() throws Exception {
         field = new Field();
         loop = new GameLoop(field, context);
-        Painter.paint(field, context);
+        Renderer.render(field, context);
     }
 
     public static void main(String[] args) {
