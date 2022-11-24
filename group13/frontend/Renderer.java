@@ -7,6 +7,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 import java.io.FileInputStream;
 
@@ -28,6 +29,9 @@ public class Renderer {
         Snake snake = field.getSnake();
         gc.setFill(Color.WHITE);
         snake.getSnakeBody().forEach(tile -> renderTile(tile, gc));
+
+        gc.fillText("Score: " + field.getTotalScore(), 9, 20);
+        gc.setFont(Font.font("Arial", FontWeight.BOLD, 25));
     }
 
     private static void renderTile(Tile tile, GraphicsContext gc) {
