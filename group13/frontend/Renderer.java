@@ -35,7 +35,8 @@ public class Renderer {
     }
 
     private static void renderTile(Tile tile, GraphicsContext gc) {
-        gc.fillRect(tile.getX(), tile.getY(), 25, 25);
+        gc.fillRoundRect(tile.getX(), tile.getY(), 25, 25, 15, 25);
+       // gc.fillRect(tile.getX(), tile.getY(), 25, 25);
     }
 
     private static void renderMouseImageTile(Field field, Tile tile, GraphicsContext gc) throws Exception {
