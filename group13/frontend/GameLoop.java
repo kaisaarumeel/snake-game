@@ -32,6 +32,8 @@ public class GameLoop implements Runnable {
             // Check if the loop should be interrupted because the player died
             if (this.field.gameOver()) {
                 paused = true;
+                //if the game is over, it will pop up game over text
+                GameOver.GameOver(field, context);
                 break;
             }
             // Update field
@@ -54,6 +56,7 @@ public class GameLoop implements Runnable {
                     e.printStackTrace();
                 }
             }
+
             keyDown = false;
         }
     }
