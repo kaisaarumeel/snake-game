@@ -3,10 +3,12 @@ package group13.snakegame;
 import group13.backend.Field;
 import group13.frontend.GameLoop;
 import group13.frontend.Renderer;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.KeyEvent;
 
 public class SnakeGame {
     private GraphicsContext context;
@@ -41,31 +43,32 @@ public class SnakeGame {
     // Starts the event listener for keyboard control -- NEEDS MORE RESEARCH AND POSSIBLY REFACTORING
     public void startEventListener() throws Exception {
         this.canvas.setFocusTraversable(true);
-        this.canvas.setOnKeyPressed(e -> {
-            if (loop.isKeyDown()) {
-                return;
-            }
-            switch (e.getCode()) {
-                case UP -> field.up();
-                case DOWN -> field.down();
-                case LEFT -> field.left();
-                case RIGHT -> field.right();
-                case ENTER -> {
-                    if (loop.isPaused()) {
-                        try {
-                            reset();
-                        } catch (Exception ex) {
-                            throw new RuntimeException(ex);
-                        }
-                        try {
-                            this.startGame();
-                        } catch (Exception ex) {
-                            throw new RuntimeException(ex);
-                        }
+        this.canvas.setOnKeyPressed(this::handleEvent);
+    }
+    public void handleEvent(KeyEvent e) {
+        if (loop.isKeyDown()) {
+            return;
+        }
+        switch (e.getCode()) {
+            case UP -> field.up();
+            case DOWN -> field.down();
+            case LEFT -> field.left();
+            case RIGHT -> field.right();
+            case ENTER -> {
+                if (loop.isPaused()) {
+                    try {
+                        reset();
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                    try {
+                        this.startGame();
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
                     }
                 }
             }
-            loop.setKeyDown();
-        });
+        }
+        loop.setKeyDown();
     }
 }
