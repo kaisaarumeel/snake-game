@@ -15,16 +15,23 @@ public class GameOver {
     }
 
     private static void renderText(Field field, GraphicsContext gc) {
+        //Backround
+        gc.setFill(Color.POWDERBLUE);
+        gc.fillRoundRect(150, 200,400,190, 110, 120);
+
         //Game over text
         gc.setFont(Font.font("Verdana", FontWeight.BOLD, 37));
-        gc.setFill(Color.BLUE);
-        gc.fillText("GAME OVER", 220, 300);
+        gc.setFill(Color.DARKBLUE);
+        gc.fillText("GAME OVER!", 220, 300);
 
-        gc.fillText("SCORE: " + field.getTotalScore(), 245, 250);
+        //Score text
+        gc.setFont(Font.font("Verdana", FontWeight.BOLD, 25));
+        gc.setFill(Color.CADETBLUE);
+        gc.fillText("SCORE: " + field.getTotalScore(), 280, 245);
 
         //Under that, press enter to play again text
         gc.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
-        gc.setFill(Color.NAVY);
+        gc.setFill(Color.CADETBLUE);
         gc.fillText("PRESS ENTER TO PLAY AGAIN", 180, 350);
     }
 
