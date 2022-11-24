@@ -10,6 +10,7 @@ public class Field {
 
     private Snake snake;
     private boolean gameOver;
+    private int score = 0;
 
     public Field(){
         Tile[] initialTiles = new Tile[]{new Tile(350, 350), new Tile(375, 350), new Tile(400, 350)};
@@ -125,7 +126,12 @@ public class Field {
         if (snake.getSnakeBody().get(0).equals(mouse.getTile())) {
           this.grow();
           spawnMouse();
+            score++;
         }
+    }
+
+    public int getTotalScore(){
+        return score;
     }
 
 

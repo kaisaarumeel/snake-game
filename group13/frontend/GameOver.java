@@ -11,14 +11,16 @@ import javafx.scene.text.Text;
 public class GameOver {
 
     public static void GameOver(Field field, GraphicsContext gc){
-        renderText(gc);
+        renderText(field,gc);
     }
 
-    private static void renderText(GraphicsContext gc) {
+    private static void renderText(Field field, GraphicsContext gc) {
         //Game over text
         gc.setFont(Font.font("Verdana", FontWeight.BOLD, 37));
         gc.setFill(Color.BLUE);
         gc.fillText("GAME OVER", 220, 300);
+
+        gc.fillText("SCORE: " + field.getTotalScore(), 245, 250);
 
         //Under that, press enter to play again text
         gc.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
