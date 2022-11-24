@@ -73,7 +73,9 @@ public class GameLoop implements Runnable {
     }
 
     public void setKeyDown() {
-        keyDown = true;
+        if (!this.isPaused()) {
+            keyDown = true;
+        }
     }
 
 }
