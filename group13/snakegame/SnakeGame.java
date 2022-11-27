@@ -50,10 +50,10 @@ public class SnakeGame {
             return;
         }
         switch (e.getCode()) {
-            case UP -> field.up();
-            case DOWN -> field.down();
-            case LEFT -> field.left();
-            case RIGHT -> field.right();
+            case UP, W -> field.up();
+            case DOWN, S -> field.down();
+            case LEFT, A -> field.left();
+            case RIGHT, D -> field.right();
             case ENTER -> {
                 if (loop.isPaused()) {
                     try {
