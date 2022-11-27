@@ -20,7 +20,7 @@ public class SnakeGame {
     // Creates and returns a new scene
     public Scene getScene() throws Exception {
         Group root = new Group();
-        canvas = new Canvas(700, 700);
+        canvas = new Canvas(700, 750);
         context = canvas.getGraphicsContext2D();
         root.getChildren().add(canvas);
         return new Scene(root);
@@ -68,6 +68,7 @@ public class SnakeGame {
                     }
                 }
             }
+            case ESCAPE -> System.exit(0);
         }
         loop.setKeyDown();
     }

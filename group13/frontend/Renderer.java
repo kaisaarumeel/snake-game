@@ -10,13 +10,22 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 import java.io.FileInputStream;
+import java.util.List;
 
 public class Renderer {
     public static Image mouseImage;
     public static void render(Field field, GraphicsContext gc) throws Exception {
-        // paint the background black
+        // First render the field, paint the background black
         gc.setFill(Color.BLACK);
-        gc.fillRect(0,0, 700, 700);
+        gc.fillRect(0,0, field.getWidth(), field.getHeight());
+
+        // Render the border
+        gc.setFill(Color.CORNSILK);
+        field.getBorder().forEach(tile -> renderBorderTile(tile, gc));
+
+        // Render bottom bar
+        gc.setFill(Color.BLACK);
+        gc.fillRect(0, field.getHeight(), field.getWidth(), 50);
 
        /* // render the food
         gc.setFill(Color.PINK);
@@ -30,7 +39,7 @@ public class Renderer {
         gc.setFill(Color.WHITE);
         snake.getSnakeBody().forEach(tile -> renderTile(tile, gc));
 
-        gc.fillText("Score: " + field.getTotalScore(), 9, 20);
+        gc.fillText("Score: " + field.getTotalScore(), 9, field.getHeight() + 35);
         gc.setFont(Font.font("Impact", FontWeight.BOLD, 25));
     }
 
@@ -39,6 +48,9 @@ public class Renderer {
        // gc.fillRect(tile.getX(), tile.getY(), 25, 25);
     }
 
+    private static void renderBorderTile(Tile tile, GraphicsContext gc) {
+        gc.fillRect(tile.getX(), tile.getY(), 25, 25);
+    }
     private static void renderMouseImageTile(Field field, Tile tile, GraphicsContext gc) throws Exception {
         // First checks if the image for the mouse has been loaded or not
         if (mouseImage == null) {
