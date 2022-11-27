@@ -31,7 +31,7 @@ public class Renderer {
         snake.getSnakeBody().forEach(tile -> renderTile(tile, gc));
 
         gc.fillText("Score: " + field.getTotalScore(), 9, 20);
-        gc.setFont(Font.font("Arial", FontWeight.BOLD, 25));
+        gc.setFont(Font.font("Impact", FontWeight.BOLD, 25));
     }
 
     private static void renderTile(Tile tile, GraphicsContext gc) {
