@@ -27,10 +27,10 @@ public class SnakeGameMain extends Application {
         Button startGame = new Button("Play the SnakeGame");
         startGame.setAlignment(Pos.CENTER);
 
-        Button manual = new Button("Manual");
+        Button howToPlay = new Button("How to play");
         Button leaderBoard =  new Button("Leader Board");
 
-        menuLayout.getChildren().addAll(startGame, manual, leaderBoard);
+        menuLayout.getChildren().addAll(startGame, howToPlay, leaderBoard);
 
         startGame.setOnMousePressed(e -> {
             try{
