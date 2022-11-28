@@ -10,8 +10,11 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class SnakeGameMain extends Application {
+    public static Stage stage;
+    public static Scene menuScene;
     @Override
     public void start(Stage primaryStage) throws Exception {
+        stage = primaryStage;
         // Create new SnakeGame object (can be somewhere else when we have the menu already)
         //SnakeGame game = new SnakeGame();
 
@@ -20,7 +23,7 @@ public class SnakeGameMain extends Application {
         primaryStage.setOnCloseRequest(e -> System.exit(0));
 
         VBox menuLayout = new VBox(25);
-        Scene menuScene = new Scene(menuLayout, 700, 700, Color.BLACK);
+        menuScene = new Scene(menuLayout, 700, 700, Color.BLACK);
         primaryStage.setScene(menuScene);
         menuLayout.setAlignment(Pos.CENTER);
 
@@ -44,6 +47,9 @@ public class SnakeGameMain extends Application {
 
         primaryStage.show();
 
+    }
+    public static void showMenu(){
+        stage.setScene(menuScene);
     }
 
 
