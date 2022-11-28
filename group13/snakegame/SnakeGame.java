@@ -1,5 +1,6 @@
 package group13.snakegame;
 
+import group13.SnakeGameMain;
 import group13.backend.Field;
 import group13.frontend.GameLoop;
 import group13.frontend.Renderer;
@@ -68,7 +69,7 @@ public class SnakeGame {
                     }
                 }
             }
-            case ESCAPE -> System.exit(0);
+            case ESCAPE -> SnakeGameMain.showMenu();
         }
         loop.setKeyDown();
     }
