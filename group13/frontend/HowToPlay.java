@@ -1,9 +1,11 @@
 package group13.frontend;
 
+import group13.SnakeGameMain;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -26,6 +28,20 @@ public class HowToPlay {
         context = canvas.getGraphicsContext2D();
         setContext(context);
         root.getChildren().add(canvas);
+
+        Button backToMenu = new Button("<- Back to Menu");
+        backToMenu.setTranslateX(20);
+        backToMenu.setTranslateY(20);
+        Font font = Font.font("Impact", FontWeight.BOLD, 15);
+        backToMenu.setFont(font);
+
+        backToMenu.setStyle("-fx-highlight-text-fill: #023020; ");
+
+        backToMenu.setOnMousePressed(click -> {
+            SnakeGameMain.showMenu();
+        });
+
+        root.getChildren().add(backToMenu);
         return new Scene(root);
     }
 
