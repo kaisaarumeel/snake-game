@@ -9,7 +9,10 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 public class SnakeGame {
     private GraphicsContext context;
@@ -20,10 +23,25 @@ public class SnakeGame {
 
     // Creates and returns a new scene
     public Scene getScene() throws Exception {
+
+        //Back to Menu button on the bottom of the screen
+        Button backToMenu = new Button("Back to Menu");
+        backToMenu.setTranslateX(570);
+        backToMenu.setTranslateY(710);
+        Font font = Font.font("Impact", FontWeight.BOLD, 15);
+        backToMenu.setFont(font);
+        backToMenu.setStyle("-fx-background-color: #FFF8DC; ");
+        backToMenu.setFocusTraversable(false);
+        backToMenu.setOnMousePressed(click -> {
+            SnakeGameMain.showMenu();
+        });
+
         Group root = new Group();
+
         canvas = new Canvas(700, 750);
         context = canvas.getGraphicsContext2D();
         root.getChildren().add(canvas);
+        root.getChildren().add(backToMenu);
         return new Scene(root);
     }
 
