@@ -1,6 +1,6 @@
 package group13;
 
-import group13.frontend.HowToPlay;
+import group13.frontend.HowToPlayController;
 import group13.snakegame.SnakeGame;
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -48,7 +48,7 @@ public class SnakeGameMain extends Application {
 
         howToPlay.setOnMousePressed(click ->{
             try{
-                primaryStage.setScene(HowToPlay.getScene());
+                primaryStage.setScene(HowToPlayController.getScene());
             } catch(Exception e1){
                 System.out.println("Please try again later");
             }
