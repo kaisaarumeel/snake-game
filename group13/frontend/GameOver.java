@@ -20,7 +20,7 @@ public class GameOver {
     private static void renderText(Field field, GraphicsContext gc) {
         //Backround
         gc.setFill(Color.CORNSILK);
-        gc.fillRoundRect(150, 200,400,190, 40, 50);
+        gc.fillRoundRect(150, 200,400,250, 40, 50);
 
         //Game over text
         gc.setFont(Font.font("Impact", FontWeight.BOLD, 37));
@@ -36,6 +36,15 @@ public class GameOver {
         gc.setFont(Font.font("Impact", FontWeight.BOLD, 20));
         gc.setFill(Color.BLACK);
         gc.fillText("PRESS ENTER TO PLAY AGAIN", 240, 350);
+
+
+        gc.setFont(Font.font("Impact", FontWeight.BOLD, 20));
+        gc.setFill(Color.BLACK);
+        gc.fillText("PRESS ESC OR CLICK ON THE BUTTON BELOW", 180, 390);
+
+        gc.setFont(Font.font("Impact", FontWeight.BOLD, 20));
+        gc.setFill(Color.BLACK);
+        gc.fillText("TO GO BACK TO THE MENU", 240, 410);
     }
 
 
