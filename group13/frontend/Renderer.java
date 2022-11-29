@@ -14,6 +14,7 @@ import java.util.List;
 
 public class Renderer {
     public static Image mouseImage;
+    public static Image snakeHead;
     public static void render(Field field, GraphicsContext gc) throws Exception {
         // First render the field, paint the background black
         gc.setFill(Color.BLACK);
@@ -34,10 +35,15 @@ public class Renderer {
         //setting the image for the mouse
         renderMouseImageTile(field, field.getMouseTile(), gc);
 
-        //render the snake
         Snake snake = field.getSnake();
+        // Render snake head
+        renderSnakeHead(field, snake.getSnakeBody().get(0), gc);
+        //render the snake
         gc.setFill(Color.WHITE);
-        snake.getSnakeBody().forEach(tile -> renderTile(tile, gc));
+        for (int i = 1; i < snake.getSnakeBody().size(); i++) {
+            renderTile(snake.getSnakeBody().get(i), gc);
+        }
+        // snake.getSnakeBody().forEach(tile -> renderTile(tile, gc));
 
         gc.fillText("Score: " + field.getTotalScore(), 9, field.getHeight() + 35);
         gc.setFont(Font.font("Impact", FontWeight.BOLD, 25));
@@ -61,5 +67,28 @@ public class Renderer {
         }
         // Renders the image
         gc.drawImage(mouseImage, field.getMouseTile().getX(), field.getMouseTile().getY());
+    }
+    private static void renderSnakeHead(Field field, Tile tile, GraphicsContext gc) throws Exception {
+        gc.setFill(Color.WHITE);
+        gc.fillRoundRect(tile.getX(), tile.getY(), 25, 25, 15, 25);
+        gc.setFill(Color.RED);
+        switch (field.getSnake().getDirection()) {
+            case LEFT -> {
+                gc.fillRect(tile.getX() + 6, tile.getY() + 7, 3, 3);
+                gc.fillRect(tile.getX() + 6, tile.getY() + 15, 3, 3);
+            }
+            case RIGHT -> {
+                gc.fillRect(tile.getX() + 19, tile.getY() + 7, 3, 3);
+                gc.fillRect(tile.getX() + 19, tile.getY() + 15, 3, 3);
+            }
+            case DOWN -> {
+                gc.fillRect(tile.getX() + 7, tile.getY() + 19, 3, 3);
+                gc.fillRect(tile.getX() + 15, tile.getY() + 19, 3, 3);
+            }
+            case UP -> {
+                gc.fillRect(tile.getX() + 7, tile.getY() + 6, 3, 3);
+                gc.fillRect(tile.getX() + 15, tile.getY() + 6, 3, 3);
+            }
+        }
     }
 }
