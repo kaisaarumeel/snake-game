@@ -6,9 +6,12 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
+import java.io.FileInputStream;
 
 public class SnakeGameMain extends Application {
     public static Stage stage;
@@ -19,7 +22,12 @@ public class SnakeGameMain extends Application {
         // Create new SnakeGame object (can be somewhere else when we have the menu already)
         //SnakeGame game = new SnakeGame();
 
-        primaryStage.setTitle("SnakeGame Menu");
+        FileInputStream iconInputStream = new FileInputStream("group13/frontend/assets/SnakeGameIcon - Copy.png");
+        Image icon = new Image(iconInputStream);
+        iconInputStream.close();
+        primaryStage.getIcons().add(icon);
+
+        primaryStage.setTitle("Snake Game");
         primaryStage.setResizable(false);
         primaryStage.setOnCloseRequest(e -> System.exit(0));
 
