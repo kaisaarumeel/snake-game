@@ -3,15 +3,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane  prefHeight="700.0" prefWidth="700.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group13.frontend.HowToPlayController">
+<AnchorPane prefHeight="700.0" prefWidth="700.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group13.frontend.HowToPlayController">
    <children>
-      <Button graphicTextGap="10.0" layoutX="8.0" layoutY="9.0" mnemonicParsing="false" onAction="#backToMenuButtonClicked" prefHeight="22.0" prefWidth="109.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Back to menu" textAlignment="CENTER" textFill="WHITE">
+      <Button graphicTextGap="10.0" layoutX="19.0" layoutY="9.0" mnemonicParsing="false" onAction="#backToMenuButtonClicked" prefHeight="28.0" prefWidth="107.0" style="-fx-background-color: transparent; -fx-border-color: white;" text="Back to menu" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Impact" size="13.0" />
          </font></Button>
-      <TextField  layoutX="210.0" layoutY="11.0" prefHeight="78.0" prefWidth="282.0" style="-fx-background-color: BLACK; -fx-text-fill: white;" text="HOW TO PLAY:">
+      <TextField layoutX="210.0" layoutY="11.0" prefHeight="124.0" prefWidth="282.0" style="-fx-background-color: BLACK; -fx-text-fill: white;" text="HOW TO PLAY:">
          <font>
             <Font name="Impact" size="41.0" />
          </font>
@@ -26,9 +27,17 @@
             <Image url="@wasdKeyboard.png" />
          </image>
       </ImageView>
-      <TextField  layoutX="160.0" layoutY="200.0" prefHeight="61.0" prefWidth="356.0" promptText="-fx-highlight-text-fill" style="-fx-text-fill: white; -fx-background-color: black" text="      MOVE THE SNAKE BY PRESSING YOUR KEYBOARD" >
+      <TextField layoutX="161.0" layoutY="182.0" prefHeight="61.0" prefWidth="379.0" promptText="-fx-highlight-text-fill" style="-fx-text-fill: white; -fx-background-color: black" text="USE YOUR KEYBOARD TO MOVE AND TURN THE SNAKE     ">
          <font>
             <Font name="Impact" size="17.0" />
          </font></TextField>
+      <Line endX="672.0" endY="149.5" startX="19.0" startY="149.5" stroke="WHITE" />
+      <Line endX="672.0" endY="289.29290771484375" startX="18.0" startY="289.29290771484375" stroke="WHITE" />
+      <TextArea editable="false" layoutX="19.0" layoutY="311.0" prefHeight="159.0" prefWidth="412.0" text="&#10;IF THE SNAKE CRASHES AGAINST THE WALLS&#10;                            OR AGAINST ITSELF. . .&#10;                      THE GAME WILL BE  OVER!" wrapText="true">
+         <font>
+            <Font name="Impact" size="22.0" />
+         </font>
+      </TextArea>
+      <TextArea layoutX="269.0" layoutY="492.0" prefHeight="172.0" prefWidth="412.0" />
    </children>
 </AnchorPane>
