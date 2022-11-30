@@ -68,6 +68,8 @@ public class Renderer {
         // Renders the image
         gc.drawImage(mouseImage, field.getMouseTile().getX(), field.getMouseTile().getY());
     }
+
+    //Renders the snake head to have eyes, changes the fill depending on the direction of the snake
     private static void renderSnakeHead(Field field, Tile tile, GraphicsContext gc) throws Exception {
         gc.setFill(Color.WHITE);
         gc.fillRoundRect(tile.getX(), tile.getY(), 25, 25, 15, 25);

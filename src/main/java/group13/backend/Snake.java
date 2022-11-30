@@ -8,16 +8,16 @@ import java.util.Arrays;
 public class Snake{
 
     private ArrayList <Tile> snakeBody;
-    private Direction direction;    //Will store the direction which the snake is moving.
 
+    //Will store the direction which the snake is moving.
+    private Direction direction;
 
     public Snake(Tile[] initialTiles) {
         this.snakeBody = new ArrayList<>();
         this.snakeBody.addAll(Arrays.asList(initialTiles));
         this.direction = Direction.LEFT;
     }
-
-
+    //When the snake grows, one tile is added to the body.
     public void grow(int x, int y){
         this.snakeBody.add(new Tile(x, y));
     }
