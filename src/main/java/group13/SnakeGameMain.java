@@ -22,7 +22,7 @@ public class SnakeGameMain extends Application {
         // Create new SnakeGame object (can be somewhere else when we have the menu already)
         //SnakeGame game = new SnakeGame();
 
-        FileInputStream iconInputStream = new FileInputStream("group13/frontend/assets/SnakeGameIcon - Copy.png");
+        FileInputStream iconInputStream = new FileInputStream("src/main/resources/SnakeGameIcon - Copy.png");
         Image icon = new Image(iconInputStream);
         iconInputStream.close();
         primaryStage.getIcons().add(icon);
@@ -50,7 +50,8 @@ public class SnakeGameMain extends Application {
                 primaryStage.setScene(game.getScene());
                 game.startGame();
             } catch(Exception e1){
-                System.out.println("Please try again later");
+                // System.out.println("Please try again later");
+                e1.printStackTrace();
             }
         });
 
@@ -58,7 +59,8 @@ public class SnakeGameMain extends Application {
             try{
                 primaryStage.setScene(HowToPlayController.getScene());
             } catch(Exception e1){
-                System.out.println("Please try again later");
+                // System.out.println("Please try again later");
+                e1.printStackTrace();
             }
         });
 

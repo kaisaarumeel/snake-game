@@ -18,12 +18,12 @@
       </TextField>
       <ImageView fitHeight="94.0" fitWidth="151.0" layoutX="6.0" layoutY="166.0">
          <image>
-            <Image url="@assets/arrowKeyboard.png" />
+            <Image url="@arrowKeyboard.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="94.0" fitWidth="151.0" layoutX="535.0" layoutY="166.0">
          <image>
-            <Image url="@assets/wasdKeyboard.png" />
+            <Image url="@wasdKeyboard.png" />
          </image>
       </ImageView>
       <TextField  layoutX="160.0" layoutY="200.0" prefHeight="61.0" prefWidth="356.0" promptText="-fx-highlight-text-fill" style="-fx-text-fill: white; -fx-background-color: black" text="      MOVE THE SNAKE BY PRESSING YOUR KEYBOARD" >

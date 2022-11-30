@@ -61,7 +61,7 @@ public class Renderer {
         // First checks if the image for the mouse has been loaded or not
         if (mouseImage == null) {
             // If not, loads the image
-            FileInputStream inputstream = new FileInputStream("group13/frontend/assets/mouse.png");
+            FileInputStream inputstream = new FileInputStream("src/main/resources/mouse.png");
             mouseImage = new Image(inputstream, 30, 30, false, false);
             inputstream.close();
         }

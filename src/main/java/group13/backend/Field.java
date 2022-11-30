@@ -15,7 +15,7 @@ public class Field {
     private Mouse mouse;
 
     private final Snake snake;
-    private int score = 0;
+    private int score;
 
     public Field(){
         this.TILE_SIZE = 25;
@@ -25,6 +25,7 @@ public class Field {
         this.border = this.generateBorder();
         this.initialTiles = new Tile[]{new Tile(350, 350), new Tile(375, 350), new Tile(400, 350)};
         this.snake = new Snake(initialTiles);
+        this.score = 0;
         this.spawnMouse();
     }
     //The mechanism of moving the snake on the field is adding a new rectangle in front

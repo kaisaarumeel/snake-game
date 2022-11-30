@@ -26,7 +26,10 @@ public class HowToPlayController {
 
     // Creates and returns a new scene
     public static Scene getScene() throws Exception {
-        Parent root = FXMLLoader.load(HowToPlayController.class.getResource("HowToPlay.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(HowToPlayController.class.getResource("/HowToPlay.fxml"));
+        // Parent root = FXMLLoader.load(HowToPlayController.class.getResource("/HowToPlay.fxml"));
+        Parent root = loader.load();
         return new Scene(root);
     }
 
