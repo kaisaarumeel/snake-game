@@ -7,5 +7,4 @@ module group13 {
 
     exports group13;
     exports group13.frontend;
-    opens group13.frontend to javafx.fxml;
 }
