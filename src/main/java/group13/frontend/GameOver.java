@@ -1,7 +1,9 @@
 package group13.frontend;
 
+import group13.SnakeGameMain;
 import group13.backend.Field;
 import group13.backend.Tile;
+import group13.snakegame.SnakeGame;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
@@ -45,6 +47,9 @@ public class GameOver {
         gc.setFont(Font.font("Impact", FontWeight.BOLD, 20));
         gc.setFill(Color.BLACK);
         gc.fillText("TO GO BACK TO THE MENU", 240, 410);
+
+        // Prompt user for their name
+
     }
 
 

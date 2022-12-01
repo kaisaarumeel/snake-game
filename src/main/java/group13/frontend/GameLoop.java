@@ -6,6 +6,9 @@ import group13.backend.Field;
 import group13.snakegame.SnakeGame;
 import javafx.scene.canvas.GraphicsContext;
 
+import java.util.Objects;
+import java.util.Scanner;
+
 public class GameLoop implements Runnable {
     // value determining the number of updates per second (UPS)
     public static final int SPEED = 10;
@@ -37,10 +40,16 @@ public class GameLoop implements Runnable {
                 paused = true;
                 //if the game is over, it will pop up game over text
                 GameOver.GameOver(field, context);
-                game.getScoreHandler().addNewScore("Player 1", field.getTotalScore());
+
+                // Save player score, need to add name feature properly, for now it's a prompt in console
+                // Saves current player score
+                game.getScoreHandler().addNewScore("Janos", field.getTotalScore());
+
+
+                // This is only for testing, prints top 5 scores in json format to console
                 ObjectMapper objectMapper = new ObjectMapper();
                 try {
-                    System.out.println(objectMapper.writeValueAsString(game.getScoreHandler().getHighScore(5)));
+                    System.out.println(objectMapper.writeValueAsString(game.getScoreHandler().getHighScoreList(5)));
                 } catch (JsonProcessingException e) {
                     throw new RuntimeException(e);
                 }

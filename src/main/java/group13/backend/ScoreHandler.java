@@ -57,11 +57,15 @@ public class ScoreHandler {
     }
 
     // Method to return a specified number of top scores sorted
-    public List<Map<String, Object>> getHighScore(int topNum) {
+    public List<Map<String, Object>> getHighScoreList(int topNum) {
         // first load json, in case there are changes
         this.loadScore();
         List<Map<String, Object>> sortedList = new ArrayList<>(scoreList);
         sortedList.sort(Collections.reverseOrder(new ScoreMapComparator("score")));
         return sortedList.subList(0, topNum - 1);
+    }
+
+    public String getLastPlayer() {
+        return (String) this.scoreList.get(scoreList.size() - 1).get("name");
     }
 }
