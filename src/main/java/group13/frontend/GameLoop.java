@@ -1,5 +1,7 @@
 package group13.frontend;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import group13.backend.Field;
 import group13.snakegame.SnakeGame;
 import javafx.scene.canvas.GraphicsContext;
@@ -38,6 +40,12 @@ public class GameLoop implements Runnable {
                 //if the game is over, it will pop up game over text
                 GameOver.GameOver(field, context);
                 game.getScoreHandler().addNewScore("Player 1", field.getTotalScore());
+                ObjectMapper objectMapper = new ObjectMapper();
+                try {
+                    System.out.println(objectMapper.writeValueAsString(game.getScoreHandler().getHighScore(5)));
+                } catch (JsonProcessingException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             }
             // Update field

@@ -6,7 +6,7 @@ import java.util.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ScoreHandler {
-    private List<Map<String, Integer>> scoreList;
+    private List<Map<String, Object>> scoreList;
     private ObjectMapper objectMapper;
 
     public ScoreHandler() {
@@ -17,14 +17,15 @@ public class ScoreHandler {
 
     }
 
-    public List<Map<String, Integer>> getScoreList() {
+    public List<Map<String, Object>> getScoreList() {
         return scoreList;
     }
 
     public void addNewScore(String playerName, int score) {
-        this.scoreList.add(new HashMap<String, Integer>(){
+        this.scoreList.add(new HashMap<String, Object>(){
             {
-                put(playerName, score);
+                put("name", playerName);
+                put("score", score);
             }
         });
         // After adding the score to the list, sync it with json file
@@ -41,7 +42,6 @@ public class ScoreHandler {
         }
         try {
             this.scoreList = objectMapper.readValue(scoresDataFile, this.scoreList.getClass());
-            System.out.println(objectMapper.writeValueAsString(scoreList));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,11 +57,11 @@ public class ScoreHandler {
     }
 
     // Method to return a specified number of top scores sorted
-    public List<Map<String, Integer>> getHighScore(int topNum) {
+    public List<Map<String, Object>> getHighScore(int topNum) {
         // first load json, in case there are changes
         this.loadScore();
-        List<Map<String, Integer>> sortedList = new ArrayList<>(scoreList);
-        sortedList.sort(new ScoreMapComparator("score"));
+        List<Map<String, Object>> sortedList = new ArrayList<>(scoreList);
+        sortedList.sort(Collections.reverseOrder(new ScoreMapComparator("score")));
         return sortedList.subList(0, topNum - 1);
     }
 }
