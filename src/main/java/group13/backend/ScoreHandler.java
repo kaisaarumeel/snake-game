@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ScoreHandler {
     private List<Map<String, Object>> scoreList;
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
 
     public ScoreHandler() {
         this.scoreList = new ArrayList<>();
@@ -22,7 +22,7 @@ public class ScoreHandler {
     }
 
     public void addNewScore(String playerName, int score) {
-        this.scoreList.add(new HashMap<String, Object>(){
+        this.scoreList.add(new HashMap<>() {
             {
                 put("name", playerName);
                 put("score", score);

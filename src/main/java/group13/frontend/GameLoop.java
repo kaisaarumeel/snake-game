@@ -14,8 +14,6 @@ public class GameLoop implements Runnable {
     private final GraphicsContext context;
     // Time it should take to update and render if we want to have SPEED number of UPS
     private final double optimalUpdateTime;
-    // The time it actually took for the loop to update and render
-    private double updateTime;
     private boolean paused;
     private boolean keyDown;
 
@@ -23,7 +21,7 @@ public class GameLoop implements Runnable {
         this.game = game;
         this.field = field;
         this.context = context;
-        this.optimalUpdateTime = 1000 / SPEED;
+        this.optimalUpdateTime = (double) 1000 / SPEED;
         this.paused = false;
         this.keyDown = false;
     }
@@ -58,7 +56,8 @@ public class GameLoop implements Runnable {
             }
 
             // Check how long it took to update
-            updateTime = System.currentTimeMillis() - timeAtStart;
+            // The time it actually took for the loop to update and render
+            double updateTime = System.currentTimeMillis() - timeAtStart;
             // If it took less time than the optimal update time, check the difference, and wait for that amount of time
             long waitTime = (long) (optimalUpdateTime - updateTime);
             if (updateTime < optimalUpdateTime) {

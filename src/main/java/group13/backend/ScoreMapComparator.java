@@ -1,7 +1,6 @@
 package group13.backend;
 
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Map;
 
 public class ScoreMapComparator implements Comparator<Map<String, Object>> {

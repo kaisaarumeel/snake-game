@@ -5,7 +5,6 @@ import group13.backend.Field;
 import group13.backend.ScoreHandler;
 import group13.frontend.GameLoop;
 import group13.frontend.Renderer;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -21,7 +20,7 @@ public class SnakeGame {
     private Field field;
 
     private Canvas canvas;
-    private ScoreHandler scoreHandler;
+    private final ScoreHandler scoreHandler;
 
     public SnakeGame() {
         this.scoreHandler = new ScoreHandler();

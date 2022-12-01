@@ -10,7 +10,6 @@ public class Field {
     private final int width;
     private final int height;
     private final List<Tile> border;
-    private Tile[] initialTiles;
 
     private Mouse mouse;
 
@@ -24,7 +23,7 @@ public class Field {
         this.height = 700;
         this.border = this.generateBorder();
         //The snake starts off with a body of 3 tiles.
-        this.initialTiles = new Tile[]{new Tile(350, 350), new Tile(375, 350), new Tile(400, 350)};
+        Tile[] initialTiles = new Tile[]{new Tile(350, 350), new Tile(375, 350), new Tile(400, 350)};
         this.snake = new Snake(initialTiles);
         //The score starts at 0.
         this.score = 0;
