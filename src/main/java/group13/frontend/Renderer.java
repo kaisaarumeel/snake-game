@@ -17,15 +17,17 @@ public class Renderer {
     public static Image snakeHead;
     public static void render(Field field, GraphicsContext gc) throws Exception {
         // First render the field, paint the background black
-        gc.setFill(Color.BLACK);
+        Color darkGray = Color.web("#1a1a1a");
+        gc.setFill(darkGray);
         gc.fillRect(0,0, field.getWidth(), field.getHeight());
 
         // Render the border
-        gc.setFill(Color.CORNSILK);
+        Color sage = Color.web("#C2B28F");
+        gc.setFill(sage);
         field.getBorder().forEach(tile -> renderBorderTile(tile, gc));
 
         // Render bottom bar
-        gc.setFill(Color.BLACK);
+        gc.setFill(darkGray);
         gc.fillRect(0, field.getHeight(), field.getWidth(), 50);
 
        /* // render the food
@@ -39,12 +41,13 @@ public class Renderer {
         // Render snake head
         renderSnakeHead(field, snake.getSnakeBody().get(0), gc);
         //render the snake
-        gc.setFill(Color.WHITE);
+        Color cream = Color.web("#E4D8B4");
+        gc.setFill(cream);
         for (int i = 1; i < snake.getSnakeBody().size(); i++) {
             renderTile(snake.getSnakeBody().get(i), gc);
         }
         // snake.getSnakeBody().forEach(tile -> renderTile(tile, gc));
-
+        gc.setFill(Color.CORNSILK);
         gc.fillText("Score: " + field.getTotalScore(), 9, field.getHeight() + 35);
         gc.setFont(Font.font("Impact", FontWeight.BOLD, 25));
     }
@@ -71,7 +74,8 @@ public class Renderer {
 
     //Renders the snake head to have eyes, changes the fill depending on the direction of the snake
     private static void renderSnakeHead(Field field, Tile tile, GraphicsContext gc) throws Exception {
-        gc.setFill(Color.WHITE);
+        Color cream = Color.web("#E4D8B4");
+        gc.setFill(cream);
         gc.fillRoundRect(tile.getX(), tile.getY(), 25, 25, 15, 25);
         gc.setFill(Color.RED);
         switch (field.getSnake().getDirection()) {
