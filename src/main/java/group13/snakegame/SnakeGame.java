@@ -2,14 +2,16 @@ package group13.snakegame;
 
 import group13.SnakeGameMain;
 import group13.backend.Field;
+import group13.backend.ScoreHandler;
 import group13.frontend.GameLoop;
 import group13.frontend.Renderer;
-import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -20,6 +22,11 @@ public class SnakeGame {
     private Field field;
 
     private Canvas canvas;
+    private final ScoreHandler scoreHandler;
+
+    public SnakeGame() {
+        this.scoreHandler = new ScoreHandler();
+    }
 
     // Creates and returns a new scene
     public Scene getScene() throws Exception {
@@ -48,7 +55,7 @@ public class SnakeGame {
     // Resets the game, discards old Field and Loop, creates new ones, and renders changes
     private void reset() throws Exception {
         field = new Field();
-        loop = new GameLoop(field, context);
+        loop = new GameLoop(this, field, context);
         Renderer.render(field, context);
     }
 
@@ -90,5 +97,9 @@ public class SnakeGame {
             case ESCAPE -> SnakeGameMain.showMenu();
         }
         loop.setKeyDown();
+    }
+
+    public ScoreHandler getScoreHandler() {
+        return this.scoreHandler;
     }
 }

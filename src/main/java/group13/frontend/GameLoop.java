@@ -1,24 +1,30 @@
 package group13.frontend;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import group13.backend.Field;
+import group13.snakegame.SnakeGame;
 import javafx.scene.canvas.GraphicsContext;
+
+import java.util.Objects;
+import java.util.Scanner;
 
 public class GameLoop implements Runnable {
     // value determining the number of updates per second (UPS)
     public static final int SPEED = 10;
+    private final SnakeGame game;
     private final Field field;
     private final GraphicsContext context;
     // Time it should take to update and render if we want to have SPEED number of UPS
     private final double optimalUpdateTime;
-    // The time it actually took for the loop to update and render
-    private double updateTime;
     private boolean paused;
     private boolean keyDown;
 
-    public GameLoop(Field field, GraphicsContext context) {
+    public GameLoop(SnakeGame game, Field field, GraphicsContext context) {
+        this.game = game;
         this.field = field;
         this.context = context;
-        this.optimalUpdateTime = 1000 / SPEED;
+        this.optimalUpdateTime = (double) 1000 / SPEED;
         this.paused = false;
         this.keyDown = false;
     }
@@ -34,6 +40,19 @@ public class GameLoop implements Runnable {
                 paused = true;
                 //if the game is over, it will pop up game over text
                 GameOver.GameOver(field, context);
+
+                // Save player score, need to add name feature properly, for now it's a prompt in console
+                // Saves current player score
+                game.getScoreHandler().addNewScore("Janos", field.getTotalScore());
+
+
+                // This is only for testing, prints top 5 scores in json format to console
+                ObjectMapper objectMapper = new ObjectMapper();
+                try {
+                    System.out.println(objectMapper.writeValueAsString(game.getScoreHandler().getHighScoreList(5)));
+                } catch (JsonProcessingException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             }
             // Update field
@@ -46,7 +65,8 @@ public class GameLoop implements Runnable {
             }
 
             // Check how long it took to update
-            updateTime = System.currentTimeMillis() - timeAtStart;
+            // The time it actually took for the loop to update and render
+            double updateTime = System.currentTimeMillis() - timeAtStart;
             // If it took less time than the optimal update time, check the difference, and wait for that amount of time
             long waitTime = (long) (optimalUpdateTime - updateTime);
             if (updateTime < optimalUpdateTime) {
