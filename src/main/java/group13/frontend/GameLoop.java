@@ -1,11 +1,13 @@
 package group13.frontend;
 
 import group13.backend.Field;
+import group13.snakegame.SnakeGame;
 import javafx.scene.canvas.GraphicsContext;
 
 public class GameLoop implements Runnable {
     // value determining the number of updates per second (UPS)
     public static final int SPEED = 10;
+    private final SnakeGame game;
     private final Field field;
     private final GraphicsContext context;
     // Time it should take to update and render if we want to have SPEED number of UPS
@@ -15,7 +17,8 @@ public class GameLoop implements Runnable {
     private boolean paused;
     private boolean keyDown;
 
-    public GameLoop(Field field, GraphicsContext context) {
+    public GameLoop(SnakeGame game, Field field, GraphicsContext context) {
+        this.game = game;
         this.field = field;
         this.context = context;
         this.optimalUpdateTime = 1000 / SPEED;
@@ -34,6 +37,7 @@ public class GameLoop implements Runnable {
                 paused = true;
                 //if the game is over, it will pop up game over text
                 GameOver.GameOver(field, context);
+                game.getScoreHandler().addNewScore("Player 1", field.getTotalScore());
                 break;
             }
             // Update field

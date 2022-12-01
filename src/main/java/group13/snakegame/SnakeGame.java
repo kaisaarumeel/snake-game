@@ -2,6 +2,7 @@ package group13.snakegame;
 
 import group13.SnakeGameMain;
 import group13.backend.Field;
+import group13.backend.ScoreHandler;
 import group13.frontend.GameLoop;
 import group13.frontend.Renderer;
 import javafx.event.EventHandler;
@@ -20,6 +21,11 @@ public class SnakeGame {
     private Field field;
 
     private Canvas canvas;
+    private ScoreHandler scoreHandler;
+
+    public SnakeGame() {
+        this.scoreHandler = new ScoreHandler();
+    }
 
     // Creates and returns a new scene
     public Scene getScene() throws Exception {
@@ -48,7 +54,7 @@ public class SnakeGame {
     // Resets the game, discards old Field and Loop, creates new ones, and renders changes
     private void reset() throws Exception {
         field = new Field();
-        loop = new GameLoop(field, context);
+        loop = new GameLoop(this, field, context);
         Renderer.render(field, context);
     }
 
@@ -90,5 +96,9 @@ public class SnakeGame {
             case ESCAPE -> SnakeGameMain.showMenu();
         }
         loop.setKeyDown();
+    }
+
+    public ScoreHandler getScoreHandler() {
+        return this.scoreHandler;
     }
 }
