@@ -1,0 +1,29 @@
+.button{
+    -fx-background-color: Green;
+    -fx-font-family: "Bauhaus 93";
+    -fx-font-size: 15;
+    -fx-text-fill: Yellow;
+}
+.button:hover {
+    -fx-font-size: 15;
+    -fx-text-fill: White;
+    -fx-background-color: linear-gradient(
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000
+    );
+}
+
+
+.label{
+    -fx-font-family: "Bauhaus 93";
+    -fx-font-size: 45;
+    -fx-text-fill: Yellow;
+    -fx-indeterminate-bar-animation-time: 1s;
+}
