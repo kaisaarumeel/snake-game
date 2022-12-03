@@ -29,20 +29,9 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 .label{
     -fx-font-family: "Bauhaus 93";
     -fx-font-size: 45;
-    -fx-text-fill: Yellow;
+    -fx-text-fill: Black;
     -fx-indeterminate-bar-animation-time: 1s;
 }
