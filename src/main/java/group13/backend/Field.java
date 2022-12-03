@@ -34,8 +34,25 @@ public class Field {
   //NEEDS TO BE CHANGED AND COMMENTED
     public void moveSnake(){
         if (snake.getDirection() != null){
-            grow();
-            snake.getSnakeBody().remove(snake.getSnakeBody().get(snake.getSnakeBody().size()-1));
+            Tile tile;
+            //Check snake direction; to add the new rectangle to the right place.
+            if (snake.getDirection().equals(Direction.UP)){
+                tile = new Tile(snake.getSnakeBody().get(0).getX(), snake.getSnakeBody().get(0).getY() - TILE_SIZE);
+
+
+            } else if (snake.getDirection().equals(Direction.DOWN)) {
+                tile = new Tile(snake.getSnakeBody().get(0).getX(), snake.getSnakeBody().get(0).getY() + TILE_SIZE);
+
+
+            } else if (snake.getDirection().equals(Direction.RIGHT)) {
+                tile = new Tile(snake.getSnakeBody().get(0).getX() + TILE_SIZE, snake.getSnakeBody().get(0).getY());
+
+            } else {
+                tile = new Tile(snake.getSnakeBody().get(0).getX() - TILE_SIZE, snake.getSnakeBody().get(0).getY());
+
+            }
+            snake.getSnakeBody().add(0, tile);
+            snake.getSnakeBody().remove(snake.getSnakeBody().get(snake.getSnakeBody().size()-1));    //but we remove the last rectangle of the snake.
         }
     }
 
@@ -84,18 +101,8 @@ public class Field {
 
     public void grow() {
         Tile tile;
-        //Check where the snake is moving; to add the new tile to the right place.
-        if (snake.getDirection().equals(Direction.UP)){
-            tile = new Tile(snake.getSnakeBody().get(0).getX(), snake.getSnakeBody().get(0).getY() - TILE_SIZE);
-        } else if (snake.getDirection().equals(Direction.DOWN)) {
-            tile = new Tile(snake.getSnakeBody().get(0).getX(), snake.getSnakeBody().get(0).getY() + TILE_SIZE);
-        } else if (snake.getDirection().equals(Direction.RIGHT)) {
-            tile = new Tile(snake.getSnakeBody().get(0).getX() + TILE_SIZE, snake.getSnakeBody().get(0).getY());
-        } else {
-            tile = new Tile(snake.getSnakeBody().get(0).getX() - TILE_SIZE, snake.getSnakeBody().get(0).getY());
-
-        }
-        snake.getSnakeBody().add(0, tile);
+        tile = new Tile(snake.getSnakeBody().get(snake.getSnakeBody().size()-1).getX(), snake.getSnakeBody().get(snake.getSnakeBody().size()-1).getY());
+        snake.getSnakeBody().add(snake.getSnakeBody().size()-1, tile);
     }
 
     //Spawns the mouse randomly
