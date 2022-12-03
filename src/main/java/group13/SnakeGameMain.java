@@ -1,6 +1,7 @@
 package group13;
 
 
+import group13.frontend.HowToPlayController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,14 +10,15 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileInputStream;
 
 public class SnakeGameMain extends Application {
     public static Stage stage;
     public static Scene menuScene;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        File iconPath = new File("snakegame/src/main/resources/SnakeGameIcon - Copy.png");
-        Image icon = new Image(String.valueOf(iconPath.toURL()));
+        FileInputStream inputstream = new FileInputStream("snakegame/src/main/resources/SnakeGameIcon - Copy.png");
+        Image icon = new Image(inputstream);
         primaryStage.getIcons().add(icon);
 
         primaryStage.setTitle("Snake Game");
@@ -24,12 +26,10 @@ public class SnakeGameMain extends Application {
         primaryStage.setOnCloseRequest(e -> System.exit(0));
 
         stage = primaryStage;
-        File menu = new File("snakegame/src/main/resources/Menu.fxml");
-        Parent root = FXMLLoader.load(menu.toURL());
+        Parent root = FXMLLoader.load(SnakeGameMain.class.getResource("/Menu.fxml"));
         menuScene = new Scene(root);
-        File menuStyle = new File("snakegame/src/main/resources/MenuStylesheet.css");
 
-        menuScene.getStylesheets().add(String.valueOf(menuStyle.toURL()));
+        menuScene.getStylesheets().add("MenuStylesheet.css");
         primaryStage.setTitle("SnakeGame Menu");
         primaryStage.setResizable(false);
         primaryStage.setOnCloseRequest(e -> System.exit(0));
