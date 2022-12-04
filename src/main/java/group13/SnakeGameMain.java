@@ -17,7 +17,7 @@ public class SnakeGameMain extends Application {
     public static Scene menuScene;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FileInputStream inputstream = new FileInputStream("snakegame/src/main/resources/SnakeGameIcon - Copy.png");
+        FileInputStream inputstream = new FileInputStream("src/main/resources/SnakeGameIcon - Copy.png");
         Image icon = new Image(inputstream);
         primaryStage.getIcons().add(icon);
 
