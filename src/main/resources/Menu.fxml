@@ -3,12 +3,14 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group13.frontend.MenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group13.frontend.MenuController">
    <children>
-      <Button fx:id="newgame" contentDisplay="CENTER" layoutX="234.0" layoutY="121.0" mnemonicParsing="false" onAction="#startGame" prefHeight="43.0" prefWidth="131.0" text="New Game">
+      <Button fx:id="newgame" contentDisplay="CENTER" layoutX="226.0" layoutY="270.0" mnemonicParsing="false" onAction="#startGame" prefHeight="43.0" prefWidth="147.0" text="New Game">
          <font>
             <Font name="Aldhabi" size="18.0" />
          </font>
@@ -16,7 +18,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="Leaderboard" layoutX="234.0" layoutY="269.0" mnemonicParsing="false" onAction="#leaderBoard" prefHeight="41.0" prefWidth="131.0" text="Leader board">
+      <Button fx:id="Leaderboard" layoutX="226.0" layoutY="424.0" mnemonicParsing="false" onAction="#leaderBoard" prefHeight="41.0" prefWidth="147.0" text="Leader board">
          <font>
             <Font name="Aldhabi" size="17.0" />
          </font>
@@ -24,7 +26,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="exitgame" layoutX="234.0" layoutY="342.0" mnemonicParsing="false" onAction="#exitGame" prefHeight="44.0" prefWidth="131.0" text="Exit Game">
+      <Button fx:id="exitgame" layoutX="226.0" layoutY="501.0" mnemonicParsing="false" onAction="#exitGame" prefHeight="44.0" prefWidth="147.0" text="Exit Game">
          <font>
             <Font name="Aldhabi" size="19.0" />
          </font>
@@ -32,7 +34,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="howToPlay" contentDisplay="CENTER" layoutX="234.0" layoutY="200.0" mnemonicParsing="false" onAction="#howToPlay" prefHeight="43.0" prefWidth="131.0" text="How to play">
+      <Button fx:id="howToPlay" contentDisplay="CENTER" layoutX="226.0" layoutY="348.0" mnemonicParsing="false" onAction="#howToPlay" prefHeight="43.0" prefWidth="147.0" text="How to play">
          <font>
             <Font name="Aldhabi" size="18.0" />
          </font>
@@ -40,10 +42,35 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label alignment="TOP_CENTER" layoutX="187.0" layoutY="14.0" prefHeight="64.0" prefWidth="253.0" text="Snake Game">
+      <Label alignment="TOP_CENTER" layoutX="33.0" layoutY="36.0" prefHeight="128.0" prefWidth="359.0" text="Snake">
          <font>
-            <Font name="System Bold" size="43.0" />
+            <Font size="88.0" />
          </font>
       </Label>
+      <Label alignment="TOP_CENTER" layoutX="212.0" layoutY="159.0" prefHeight="120.0" prefWidth="366.0" text="Game" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="82.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="34.0" fitWidth="38.0" layoutX="472.0" layoutY="126.0">
+         <image>
+            <Image url="@mouseP.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="397.0" layoutX="37.0" layoutY="127.0">
+         <image>
+            <Image url="@snakeP.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="119.0" layoutX="-36.0" layoutY="81.0" rotate="90.0">
+         <image>
+            <Image url="@snakeP%20(2).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="119.0" layoutX="10.0" layoutY="8.0">
+         <image>
+            <Image url="@snakeP%20(2).png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

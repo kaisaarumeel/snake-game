@@ -1,37 +1,49 @@
+@font-face {
+    font-family: 'Pixeboy';
+    src: url('Pixeboy-z8XGD.ttf');
+}
 
+.root{
+    -fx-font-family: "Pixeboy";
+    -fx-background-color:
+            linear-gradient(#fcfcfc, #8f8a84),
+            linear-gradient(#5d5c5c, #fdfdfd),
+            linear-gradient(#000000, #5b5550),
+            linear-gradient(from 0% 0% to 30% 50%, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0));
+
+}
 
 .button {
     -fx-background-color:
             linear-gradient(#ffd65b, #e68400),
             linear-gradient(#ffef84, #f2ba44),
             linear-gradient(#ffea6a, #efaa22),
-            linear-gradient(#ffe657 0%, #02f8ae 50%, #eea10b 100%),
+            linear-gradient(#000000 0%, #000000 50%, #050505 100%),
             linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
     -fx-background-radius: 30;
     -fx-background-insets: 0,1,2,3,0;
-    -fx-text-fill: #654b00;
+    -fx-text-fill: White;
     -fx-font-weight: bold;
-    -fx-font-size: 14px;
+    -fx-font-size: 18px;
     -fx-padding: 10 20 10 20;
 }
-
-
 .button:hover {
     -fx-background-color:
             linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #331d27 100%),
             #9d4024,
             #d86e3a,
-            radial-gradient(center 50% 50%, radius 100%, #ea7f4b, #c54e2c);
+            radial-gradient(center 50% 50%, radius 100%, #000000, #c54e2c);
+    -fx-text-fill: Gold;
+
 }
 .button:pressed {
     -fx-padding: 10 15 13 15;
     -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
 }
 
-
 .label{
-    -fx-font-family: "Bauhaus 93";
-    -fx-font-size: 45;
-    -fx-text-fill: Black;
-    -fx-indeterminate-bar-animation-time: 1s;
+    -fx-font-family: "Pixeboy";
+    -fx-font-size: 140px;
+
 }
+
