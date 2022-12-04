@@ -2,12 +2,10 @@ package group13.frontend;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import group13.SnakeGameMain;
 import group13.backend.Field;
-import group13.snakegame.SnakeGame;
+import javafx.application.Platform;
 import javafx.scene.canvas.GraphicsContext;
-
-import java.util.Objects;
-import java.util.Scanner;
 
 public class GameLoop implements Runnable {
     // value determining the number of updates per second (UPS)
@@ -39,12 +37,16 @@ public class GameLoop implements Runnable {
             if (this.field.gameOver()) {
                 paused = true;
                 //if the game is over, it will pop up game over text
-                GameOver.GameOver(field, context);
+                // GameOverController.GameOver(field, context);
 
-                // Save player score, need to add name feature properly, for now it's a prompt in console
-                // Saves current player score
-                game.getScoreHandler().addNewScore("Janos", field.getTotalScore());
-
+                // Need this so we can change the scene -- Is there a better solution?
+                Platform.runLater(() -> {
+                    try {
+                        SnakeGameMain.stage.setScene(GameOverController.getScene(field, game));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
 
                 // This is only for testing, prints top 5 scores in json format to console
                 ObjectMapper objectMapper = new ObjectMapper();
@@ -53,6 +55,8 @@ public class GameLoop implements Runnable {
                 } catch (JsonProcessingException e) {
                     throw new RuntimeException(e);
                 }
+                // Another test, print last entered player
+                System.out.println(game.getScoreHandler().getLastPlayer());
                 break;
             }
             // Update field
