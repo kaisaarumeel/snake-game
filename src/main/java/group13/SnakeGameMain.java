@@ -21,6 +21,7 @@ public class SnakeGameMain extends Application {
         Image icon = new Image(inputstream);
         primaryStage.getIcons().add(icon);
 
+
         primaryStage.setTitle("Snake Game");
         primaryStage.setResizable(false);
         primaryStage.setOnCloseRequest(e -> System.exit(0));
