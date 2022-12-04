@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane onKeyPressed="#handleOnKeyPressed" prefHeight="750.0" prefWidth="700.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group13.frontend.GameOverController">
+
+   <Rectangle arcHeight="50.0" arcWidth="50.0" fill="CORNSILK" height="300.0" layoutX="151.0" layoutY="201.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" width="400.0" />
+   <Label layoutX="264.0" layoutY="224.0" text="GAME OVER!" textAlignment="CENTER">
+      <font>
+         <Font name="Impact" size="37.0" />
+      </font>
+   </Label>
+   <Label fx:id="score" layoutX="300.0" layoutY="277.0" text="SCORE: " textAlignment="CENTER">
+      <font>
+         <Font name="Impact" size="25.0" />
+      </font>
+   </Label>
+   <Label layoutX="196.0" layoutY="318.0" text="ENTER YOUR NAME TO SAVE YOUR SCORE:" textAlignment="CENTER">
+      <font>
+         <Font name="Impact" size="20.0" />
+      </font>
+   </Label>
+   <Label layoutX="167.0" layoutY="417.0" text="PRESS ESCAPE OR CLICK ON THE BUTTON BELOW" textAlignment="CENTER" wrapText="true">
+      <font>
+         <Font name="Impact" size="20.0" />
+      </font>
+   </Label>
+   <Label layoutX="253.0" layoutY="448.0" text="TO GO BACK TO THE MENU" textAlignment="CENTER" wrapText="true">
+      <font>
+         <Font name="Impact" size="20.0" />
+      </font>
+   </Label>
+   <Button cacheShape="false" centerShape="false" layoutX="536.0" layoutY="700.0" mnemonicParsing="false" onAction="#handleButtonPress" style="-fx-background-color: CORNSILK;" text="Back to Menu">
+      <font>
+         <Font name="Impact" size="20.0" />
+      </font></Button>
+   <TextField alignment="CENTER" focusTraversable="false" layoutX="239.0" layoutY="356.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5; -fx-border-width: 3;" text="Last Player">
+      <font>
+         <Font name="Impact" size="20.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="TEXT" />
+      </cursor>
+   </TextField>
+
+</AnchorPane>

@@ -1,5 +1,6 @@
 package group13.frontend;
 
+import group13.SnakeGameMain;
 import group13.backend.Field;
 import group13.backend.Snake;
 import group13.backend.Tile;
@@ -11,6 +12,7 @@ import javafx.scene.text.FontWeight;
 
 import java.io.FileInputStream;
 import java.util.List;
+import java.util.Objects;
 
 public class Renderer {
     public static Image mouseImage;
@@ -64,9 +66,9 @@ public class Renderer {
         // First checks if the image for the mouse has been loaded or not
         if (mouseImage == null) {
             // If not, loads the image
-            FileInputStream inputstream = new FileInputStream("src/main/resources/mouse.png");
-            mouseImage = new Image(inputstream, 30, 30, false, false);
-            inputstream.close();
+            // FileInputStream inputstream = new FileInputStream("src/main/resources/mouse.png");
+            mouseImage = new Image(Objects.requireNonNull(SnakeGameMain.class.getResource("/mouse.png")).openStream(), 30, 30, false, false);
+            // inputstream.close();
         }
         // Renders the image
         gc.drawImage(mouseImage, field.getMouseTile().getX(), field.getMouseTile().getY());

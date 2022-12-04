@@ -11,14 +11,15 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.Objects;
 
 public class SnakeGameMain extends Application {
     public static Stage stage;
     public static Scene menuScene;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FileInputStream inputstream = new FileInputStream("snakegame/src/main/resources/SnakeGameIcon - Copy.png");
-        Image icon = new Image(inputstream);
+        // FileInputStream inputstream = new FileInputStream("src/main/resources/SnakeGameIcon - Copy.png");
+        Image icon = new Image(Objects.requireNonNull(SnakeGameMain.class.getResource("/SnakeGameIcon - Copy.png")).openStream());
         primaryStage.getIcons().add(icon);
 
         primaryStage.setTitle("Snake Game");

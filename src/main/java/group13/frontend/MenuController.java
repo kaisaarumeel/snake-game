@@ -1,12 +1,9 @@
 package group13.frontend;
 
 import group13.SnakeGameMain;
-import group13.snakegame.SnakeGame;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-
-import java.io.IOException;
 
 public class MenuController {
     SnakeGame game = new SnakeGame();
@@ -35,5 +32,11 @@ public class MenuController {
 
     }
 
+    /*public static Scene getScene() {
 
+    }*/
+
+    public SnakeGame getGame() {
+        return game;
+    }
 }

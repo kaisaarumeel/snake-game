@@ -1,4 +1,4 @@
-package group13.snakegame;
+package group13.frontend;
 
 import group13.SnakeGameMain;
 import group13.backend.Field;
@@ -53,7 +53,7 @@ public class SnakeGame {
     }
 
     // Resets the game, discards old Field and Loop, creates new ones, and renders changes
-    private void reset() throws Exception {
+    public void reset() throws Exception {
         field = new Field();
         loop = new GameLoop(this, field, context);
         Renderer.render(field, context);
@@ -94,12 +94,23 @@ public class SnakeGame {
                     }
                 }
             }
-            case ESCAPE -> SnakeGameMain.showMenu();
+            case ESCAPE -> {
+                loop.setPaused(true);
+                SnakeGameMain.showMenu();
+            }
         }
         loop.setKeyDown();
     }
 
     public ScoreHandler getScoreHandler() {
         return this.scoreHandler;
+    }
+
+    public Field getField() {
+        return field;
+    }
+
+    public GameLoop getLoop() {
+        return loop;
     }
 }
