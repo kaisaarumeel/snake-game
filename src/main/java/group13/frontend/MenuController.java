@@ -19,7 +19,7 @@ public class MenuController {
     }
 
     public  void exitGame(){
-        System.out.println("Coming soon...");
+        System.exit(0);
 
     }
 

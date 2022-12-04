@@ -19,26 +19,16 @@
          <Font name="Impact" size="25.0" />
       </font>
    </Label>
-   <Label layoutX="196.0" layoutY="318.0" text="ENTER YOUR NAME TO SAVE YOUR SCORE:" textAlignment="CENTER">
+   <Label fx:id="enterName" layoutX="196.0" layoutY="318.0" text="ENTER YOUR NAME TO SAVE YOUR SCORE:" textAlignment="CENTER">
       <font>
          <Font name="Impact" size="20.0" />
       </font>
    </Label>
-   <Label layoutX="167.0" layoutY="417.0" text="PRESS ESCAPE OR CLICK ON THE BUTTON BELOW" textAlignment="CENTER" wrapText="true">
-      <font>
-         <Font name="Impact" size="20.0" />
-      </font>
-   </Label>
-   <Label layoutX="253.0" layoutY="448.0" text="TO GO BACK TO THE MENU" textAlignment="CENTER" wrapText="true">
-      <font>
-         <Font name="Impact" size="20.0" />
-      </font>
-   </Label>
-   <Button cacheShape="false" centerShape="false" layoutX="536.0" layoutY="700.0" mnemonicParsing="false" onAction="#handleButtonPress" style="-fx-background-color: CORNSILK;" text="Back to Menu">
+   <Button cacheShape="false" centerShape="false" layoutX="188.0" layoutY="432.0" mnemonicParsing="false" onAction="#handleMenuButtonPress" style="-fx-background-color: WHITE; -fx-border-color: BLACK; -fx-border-radius: 3;" text="Back to Menu">
       <font>
          <Font name="Impact" size="20.0" />
       </font></Button>
-   <TextField alignment="CENTER" focusTraversable="false" layoutX="239.0" layoutY="356.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 5; -fx-border-width: 3;" text="Last Player">
+   <TextField fx:id="playerNameField" alignment="CENTER" focusTraversable="false" layoutX="239.0" layoutY="356.0" onAction="#onTextFieldEnter" style="-fx-background-color: #eee; -fx-border-color: #000000; -fx-border-width: 3;" text="Last Player">
       <font>
          <Font name="Impact" size="20.0" />
       </font>
@@ -46,5 +36,10 @@
          <Cursor fx:constant="TEXT" />
       </cursor>
    </TextField>
+   <Button fx:id="replay" cacheShape="false" centerShape="false" layoutX="398.0" layoutY="432.0" mnemonicParsing="false" onAction="#handleReplayButtonPress" style="-fx-background-color: WHITE; -fx-border-color: BLACK; -fx-border-radius: 3;" text="PLAY AGAIN">
+      <font>
+         <Font name="Impact" size="20.0" />
+      </font>
+   </Button>
 
 </AnchorPane>

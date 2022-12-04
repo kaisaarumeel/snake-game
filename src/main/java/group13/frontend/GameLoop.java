@@ -40,20 +40,13 @@ public class GameLoop implements Runnable {
                 // GameOverController.GameOver(field, context);
 
                 // Need this so we can change the scene -- Is there a better solution?
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            SnakeGameMain.stage.setScene(GameOverController.getScene(field, game));
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+                Platform.runLater(() -> {
+                    try {
+                        SnakeGameMain.stage.setScene(GameOverController.getScene(field, game));
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 });
-
-                // Saves current player score
-                game.getScoreHandler().addNewScore("Janos", field.getTotalScore());
-
 
                 // This is only for testing, prints top 5 scores in json format to console
                 ObjectMapper objectMapper = new ObjectMapper();
@@ -62,6 +55,8 @@ public class GameLoop implements Runnable {
                 } catch (JsonProcessingException e) {
                     throw new RuntimeException(e);
                 }
+                // Another test, print last entered player
+                System.out.println(game.getScoreHandler().getLastPlayer());
                 break;
             }
             // Update field
