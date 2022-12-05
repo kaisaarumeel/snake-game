@@ -15,9 +15,9 @@
 
 .button {
     -fx-background-color:
-            linear-gradient(#ffd65b, #e68400),
-            linear-gradient(#ffef84, #f2ba44),
-            linear-gradient(#ffea6a, #efaa22),
+            linear-gradient(#83B799, #83B799),
+            linear-gradient(#83B799, #83B799),
+            linear-gradient(#83B799, #83B799),
             linear-gradient(#000000 0%, #000000 50%, #050505 100%),
             linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
     -fx-background-radius: 30;
@@ -29,11 +29,11 @@
 }
 .button:hover {
     -fx-background-color:
-            linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #331d27 100%),
-            #9d4024,
-            #d86e3a,
-            radial-gradient(center 50% 50%, radius 100%, #000000, #c54e2c);
-    -fx-text-fill: Gold;
+            linear-gradient(from 0% 93% to 0% 100%, #83B799 0%, #83B799 100%),
+            #83B799,
+            #83B799,
+            radial-gradient(center 50% 50%, radius 100%, #000000, #83B799);
+    -fx-text-fill: White;
 
 }
 .button:pressed {
