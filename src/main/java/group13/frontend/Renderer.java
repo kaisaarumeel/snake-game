@@ -24,7 +24,7 @@ public class Renderer {
         gc.fillRect(0,0, field.getWidth(), field.getHeight());
 
         // Render the border
-        Color sage = Color.web("#C2B28F");
+        Color sage = Color.web("#83B799");
         gc.setFill(sage);
         field.getBorder().forEach(tile -> renderBorderTile(tile, gc));
 

@@ -3,14 +3,6 @@
     src: url('Pixeboy-z8XGD.ttf');
 }
 
-.root{
-    -fx-font-family: "Pixeboy";
-    -fx-background-color:
-            linear-gradient(#3a3838, #ababab),
-            linear-gradient(#000000, #5b5550),
-            linear-gradient(from 0% 0% to 30% 50%, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0));
-
-}
 
 .button {
     -fx-background-color:
@@ -40,9 +32,30 @@
     -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
 }
 
-.label{
+
+.root{
+    -fx-text-fill: White;
     -fx-font-family: "Pixeboy";
-    -fx-font-size: 140px;
+    -fx-background-color:
+            linear-gradient(#fcfcfc, #8f8a84),
+            linear-gradient(#5d5c5c, #fdfdfd),
+            linear-gradient(#000000, #5b5550),
+            linear-gradient(from 0% 0% to 30% 50%, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0));
 
 }
 
+.label{
+    -fx-font-family: "Pixeboy";
+    -fx-text-fill: White;
+
+
+}
+
+.text-field{
+    -fx-font-family: "Pixeboy";
+    -fx-border-color: #83B799;
+    -fx-font-size: 20px;
+    -fx-text-fill: Black;
+    -fx-background-color: White;
+
+}

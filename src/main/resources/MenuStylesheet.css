@@ -6,8 +6,7 @@
 .root{
     -fx-font-family: "Pixeboy";
     -fx-background-color:
-            linear-gradient(#fcfcfc, #8f8a84),
-            linear-gradient(#5d5c5c, #fdfdfd),
+            linear-gradient(#3a3838, #ababab),
             linear-gradient(#000000, #5b5550),
             linear-gradient(from 0% 0% to 30% 50%, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0));
 
