@@ -32,6 +32,15 @@ public class MenuController {
 
     }
 
+
+    public void sound(){
+        System.out.println("Coming soon...");
+    }
+
+    public void music(){
+        System.out.println("Coming soon...");
+    }
+
     /*public static Scene getScene() {
 
     }*/
