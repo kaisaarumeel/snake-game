@@ -1,6 +1,7 @@
 package group13.frontend;
 
 import group13.SnakeGameMain;
+import group13.backend.LeaderBoard;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,9 +14,9 @@ public class MenuController {
         game.startGame();
     }
 
-    public void leaderBoard(){
-        System.out.println("Coming soon...");
-
+    public void leaderBoard() throws Exception{
+        SnakeGameMain.stage.setScene(LeaderBoard.getLeaderScene());
+        SnakeGameMain.stage.setTitle("Leader Board");
     }
 
     public  void exitGame(){
