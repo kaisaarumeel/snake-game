@@ -96,9 +96,7 @@ public class MenuController {
 
     }
 
-    /*public static Scene getScene() {
 
-    }*/
 
     public SnakeGame getGame() {
         return game;
