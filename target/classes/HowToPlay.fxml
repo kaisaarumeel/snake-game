@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="700.0" stylesheets="@HowToPlayStylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group13.frontend.HowToPlayController">
+   <children>
+      <Button graphicTextGap="10.0" layoutX="19.0" layoutY="9.0" mnemonicParsing="false" onAction="#backToMenuButtonClicked" prefHeight="41.0" prefWidth="151.0" text="BACK TO MENU" textAlignment="CENTER" textFill="black">         <font>
+            <Font name="Impact" size="10.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TextField alignment="CENTER" editable="false" layoutX="205.0" layoutY="19.0" prefHeight="53.0" prefWidth="272.0" text="HOW TO PLAY:">
+         <font>
+            <Font name="Impact" size="44.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="102.0" fitWidth="151.0" layoutX="6.0" layoutY="118.0">
+         <image>
+            <Image url="@arrowKeyboard.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="102.0" fitWidth="151.0" layoutX="535.0" layoutY="119.0">
+         <image>
+            <Image url="@wasdKeyboard.png" />
+         </image>
+      </ImageView>
+      <Line endX="672.0" endY="111.0" startX="15.0" startY="111.0" stroke="WHITE" />
+      <Line endX="673.0" endY="236.0" startX="16.0" startY="236.0" stroke="WHITE" />
+      <TextArea editable="false" layoutX="313.0" layoutY="407.0" prefHeight="131.0" prefWidth="359.0" text="&#10;IF THE SNAKE CRASHES AGAINST THE WALLS&#10;                            OR AGAINST ITSELF. . .&#10;                      THE GAME WILL BE  OVER!" wrapText="true">
+         <font>
+            <Font name="Impact" size="22.0" />
+         </font>
+      </TextArea>
+      <TextArea editable="false" layoutX="14.0" layoutY="268.0" prefHeight="81.0" prefWidth="406.0" text="THE GOAL OF THE GAME IS TO EAT MICE &#10;AND GET THE HIGHEST SCORE POSSIBLE">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font></TextArea>
+      <TextField editable="false" layoutX="14.0" layoutY="613.0" prefHeight="53.0" prefWidth="419.0" text="DON'T FORGET TO SAVE YOUR SCORE!">
+         <font>
+            <Font name="Impact" size="27.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="useKey" depthTest="DISABLE" editable="false" layoutX="152.0" layoutY="129.0" prefHeight="81.0" prefWidth="388.0" text="   USE YOUR KEYBOARD TO MOVE &#10;   AND TURN THE SNAKE AROUND">
+         <font>
+            <Font name="Impact" size="28.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>
