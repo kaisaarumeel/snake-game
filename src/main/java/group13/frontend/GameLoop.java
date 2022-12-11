@@ -7,6 +7,8 @@ import group13.backend.Field;
 import javafx.application.Platform;
 import javafx.scene.canvas.GraphicsContext;
 
+import java.net.URISyntaxException;
+
 public class GameLoop implements Runnable {
     // value determining the number of updates per second (UPS)
     public static final int SPEED = 10;
@@ -34,33 +36,41 @@ public class GameLoop implements Runnable {
             double timeAtStart = System.currentTimeMillis();
 
             // Check if the loop should be interrupted because the player died
-            if (this.field.gameOver()) {
-                paused = true;
-                //if the game is over, it will pop up game over text
-                // GameOverController.GameOver(field, context);
+            try {
+                if (this.field.gameOver()) {
+                    paused = true;
+                    //if the game is over, it will pop up game over text
+                    // GameOverController.GameOver(field, context);
 
-                // Need this so we can change the scene -- Is there a better solution?
-                Platform.runLater(() -> {
+                    // Need this so we can change the scene -- Is there a better solution?
+                    Platform.runLater(() -> {
+                        try {
+                            SnakeGameMain.stage.setScene(GameOverController.getScene(field, game));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    });
+
+                    // This is only for testing, prints top 5 scores in json format to console
+                    ObjectMapper objectMapper = new ObjectMapper();
                     try {
-                        SnakeGameMain.stage.setScene(GameOverController.getScene(field, game));
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                        System.out.println(objectMapper.writeValueAsString(game.getScoreHandler().getHighScoreList(5)));
+                    } catch (JsonProcessingException e) {
+                        throw new RuntimeException(e);
                     }
-                });
-
-                // This is only for testing, prints top 5 scores in json format to console
-                ObjectMapper objectMapper = new ObjectMapper();
-                try {
-                    System.out.println(objectMapper.writeValueAsString(game.getScoreHandler().getHighScoreList(5)));
-                } catch (JsonProcessingException e) {
-                    throw new RuntimeException(e);
+                    // Another test, print last entered player
+                    System.out.println(game.getScoreHandler().getLastPlayer());
+                    break;
                 }
-                // Another test, print last entered player
-                System.out.println(game.getScoreHandler().getLastPlayer());
-                break;
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
             }
             // Update field
-            field.update();
+            try {
+                field.update();
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
             // Render changes
             try {
                 Renderer.render(field, context);
