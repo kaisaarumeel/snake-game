@@ -29,7 +29,7 @@ public class LeaderBoard {
         );
 
         ScoreHandler handler = new ScoreHandler();
-        List<Map<String, Object>> LeaderList = handler.getHighScoreList(11);
+        List<Map<String, Object>> LeaderList = handler.getHighScoreList(14);
 
             for( int i = 0; i < LeaderList.size(); i++){
                 String player = (String) LeaderList.get(i).get("name");
