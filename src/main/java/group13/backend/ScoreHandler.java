@@ -4,6 +4,7 @@ import java.io.File;
 import java.nio.file.Paths;
 import java.util.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import group13.SnakeGameMain;
 
 /**
  * This class handles saving scores and player names to a JSON file, as well as loading them.
@@ -39,7 +40,12 @@ public class ScoreHandler {
     // Loads the list of scores from the json file
     public void loadScore() {
         // First check if the json file exists
-        File scoresDataFile = new File("src/main/resources/scores.json");
+        File scoresDataFile = null;
+        try {
+            scoresDataFile = new File(ScoreHandler.class.getResource("/scores.json").toURI());            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         if (!scoresDataFile.exists() || scoresDataFile.length() == 0) {
             // If it doesn't exist there's nothing to load so return, will create file when saving the score
             return;
