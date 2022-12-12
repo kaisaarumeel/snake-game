@@ -67,10 +67,10 @@ public class ScoreHandler {
         List<Map<String, Object>> sortedList = new ArrayList<>(scoreList);
         sortedList.sort(Collections.reverseOrder(new ScoreMapComparator("score")));
         // In case the list contains fewer scores than topNum just return the whole list
-        if (sortedList.size() < topNum) {
+        if (sortedList.size() <= topNum) {
             return sortedList;
         }
-        return sortedList.subList(0, topNum - 1);
+        return sortedList.subList(0, topNum );
     }
 
     public String getLastPlayer() {
