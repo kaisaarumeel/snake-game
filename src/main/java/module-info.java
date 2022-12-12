@@ -2,6 +2,7 @@ module group13 {
     requires javafx.controls;
     requires javafx.fxml;
     requires com.fasterxml.jackson.databind;
+    requires javafx.media;
 
 
     opens group13 to javafx.fxml;

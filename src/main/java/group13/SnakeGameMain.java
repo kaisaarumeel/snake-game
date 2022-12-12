@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Objects;
@@ -38,6 +39,7 @@ public class SnakeGameMain extends Application {
 
         primaryStage.setScene(menuScene);
         primaryStage.show();
+
 
     }
     public static void showMenu(){

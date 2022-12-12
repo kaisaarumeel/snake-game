@@ -1,6 +1,6 @@
 package group13.frontend;
 
-import group13.SnakeGameMain;
+import  group13.SnakeGameMain;
 import group13.backend.Field;
 import group13.backend.ScoreHandler;
 import group13.frontend.GameLoop;

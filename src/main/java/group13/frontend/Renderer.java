@@ -7,6 +7,9 @@ import group13.backend.Tile;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.CycleMethod;
+import javafx.scene.paint.RadialGradient;
+import javafx.scene.paint.Stop;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
@@ -24,8 +27,8 @@ public class Renderer {
         gc.fillRect(0,0, field.getWidth(), field.getHeight());
 
         // Render the border
-        Color sage = Color.web("#83B799");
-        gc.setFill(sage);
+        Color grey = Color.web("#524F4F");
+        gc.setFill(grey);
         field.getBorder().forEach(tile -> renderBorderTile(tile, gc));
 
         // Render bottom bar
@@ -43,8 +46,7 @@ public class Renderer {
         // Render snake head
         renderSnakeHead(field, snake.getSnakeBody().get(0), gc);
         //render the snake
-        Color cream = Color.web("#E4D8B4");
-        gc.setFill(cream);
+        setFillGradient(gc);
         for (int i = 1; i < snake.getSnakeBody().size(); i++) {
             renderTile(snake.getSnakeBody().get(i), gc);
         }
@@ -76,10 +78,9 @@ public class Renderer {
 
     //Renders the snake head to have eyes, changes the fill depending on the direction of the snake
     private static void renderSnakeHead(Field field, Tile tile, GraphicsContext gc) throws Exception {
-        Color cream = Color.web("#E4D8B4");
-        gc.setFill(cream);
+        setFillGradient(gc);
         gc.fillRoundRect(tile.getX(), tile.getY(), 25, 25, 15, 25);
-        gc.setFill(Color.RED);
+        gc.setFill(Color.WHITE);
         switch (field.getSnake().getDirection()) {
             case LEFT -> {
                 gc.fillRect(tile.getX() + 6, tile.getY() + 7, 3, 3);
@@ -98,5 +99,15 @@ public class Renderer {
                 gc.fillRect(tile.getX() + 15, tile.getY() + 6, 3, 3);
             }
         }
+    }
+
+    public static void setFillGradient(GraphicsContext gc) {
+        Stop[] stops1 = new Stop[] { new Stop(0, Color.web("#B5FBD2")),
+                new Stop(1, Color.web("#242926"))};
+
+        RadialGradient lg1 = new RadialGradient(0, 0, 0.5, 0.5, 0.8, true,
+                CycleMethod.NO_CYCLE, stops1);
+
+        gc.setFill(lg1);
     }
 }
