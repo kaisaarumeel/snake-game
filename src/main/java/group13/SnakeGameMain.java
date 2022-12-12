@@ -42,6 +42,7 @@ public class SnakeGameMain extends Application {
     }
     public static void showMenu(){
         stage.setScene(menuScene);
+        stage.setTitle("Snake Game Menu");
     }
 
 

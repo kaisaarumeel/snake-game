@@ -11,6 +11,7 @@ public class MenuController {
 
     public void startGame() throws Exception {
         SnakeGameMain.stage.setScene(game.getScene());
+        SnakeGameMain.stage.setTitle("Snake Game");
         game.startGame();
     }
 
@@ -30,6 +31,7 @@ public class MenuController {
         Parent root = loader.load();
         Scene howToPlayScene = new Scene(root);
         SnakeGameMain.stage.setScene(howToPlayScene);
+        SnakeGameMain.stage.setTitle("How To Play");
 
     }
 
