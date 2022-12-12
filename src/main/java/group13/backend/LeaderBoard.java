@@ -41,11 +41,11 @@ public class LeaderBoard {
                 result.setPrefSize(300, 35);
                 leaderLayout.getChildren().addAll(result);
 
-                result.setStyle("-fx-background-color: #ffffff; " +
-                        "-fx-text-fill: #000000;" +
+                result.setStyle("-fx-background-color: #000000; " +
+                        "-fx-text-fill: #ffffff;" +
                         "-fx-font-size: 30px;" +
                         "-fx-padding: 5 10 5 10; " +
-                        "-fx-border-width: 5px;" +
+                        "-fx-border-width: 3px;" +
                         "-fx-border-color: #83B799;" +
                         "-fx-font-family:'Pixeboy';" +
                         "src: url('Pixeboy-z8XGD.ttf');" +
