@@ -1,9 +1,11 @@
 package group13.backend;
 
+    /*
+     * The field consists of tiles, each tile has two coordinates (x & y).
+     */
 public class Tile {
     private final int x;
     private final int y;
-    //A tile has two coordinates.
     public Tile(int x, int y) {
         this.x = x;
         this.y = y;
