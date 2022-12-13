@@ -60,7 +60,8 @@ public class ScoreHandler {
     // Saves the current list of scores to the json file
     public void saveScore() {
         try {
-            objectMapper.writeValue(Paths.get("src/main/resources/scores.json").toFile(), this.scoreList);
+            File scoresDataFile = new File(ScoreHandler.class.getResource("/scores.json").toURI());
+            objectMapper.writeValue(Paths.get(scoresDataFile.toURI()).toFile(), this.scoreList);
         } catch (Exception e) {
             e.printStackTrace();
         }

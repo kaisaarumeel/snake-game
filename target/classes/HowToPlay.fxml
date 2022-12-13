@@ -51,9 +51,14 @@
             <Font name="Impact" size="28.0" />
          </font>
       </TextArea>
-      <ImageView fitHeight="115.0" fitWidth="105.0" layoutX="430.0" layoutY="251.0">
+      <ImageView fitHeight="91.0" fitWidth="96.0" layoutX="430.0" layoutY="264.0">
          <image>
             <Image url="@trophy.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="59.0" fitWidth="76.0" layoutX="226.0" layoutY="544.0">
+         <image>
+            <Image url="@mouse.png" />
          </image>
       </ImageView>
    </children>
