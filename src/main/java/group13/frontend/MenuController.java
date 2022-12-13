@@ -51,7 +51,7 @@ public class MenuController {
 
     public void howToPlay() throws Exception {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(HowToPlayController.class.getResource("/HowToPlay.fxml"));
+        loader.setLocation(HowToPlayController.class.getResource("/FXMLfiles/HowToPlay.fxml"));
         Parent root = loader.load();
         Scene howToPlayScene = new Scene(root);
         SnakeGameMain.stage.setScene(howToPlayScene);
@@ -64,11 +64,11 @@ public class MenuController {
         soundPressedCounter += 1;
         if(soundPressedCounter % 2 == 0){
             soundEffect = true;
-            Image mutedImage = new Image(Objects.requireNonNull(SnakeGameMain.class.getResource("/Sound.png")).toURI().toString());
+            Image mutedImage = new Image(Objects.requireNonNull(SnakeGameMain.class.getResource("/Images/Sound.png")).toURI().toString());
             soundImageView.setImage(mutedImage);
         }else {
             soundEffect = false;
-            Image mutedImage = new Image(Objects.requireNonNull(SnakeGameMain.class.getResource("/MutedSound.png")).toURI().toString());
+            Image mutedImage = new Image(Objects.requireNonNull(SnakeGameMain.class.getResource("/Images/MutedSound.png")).toURI().toString());
             soundImageView.setImage(mutedImage);
         }
 
@@ -87,11 +87,11 @@ public class MenuController {
         }
         if(musicPressedCounter % 2 == 0){
             mediaView.getMediaPlayer().play();
-            Image mutedImage = new Image(Objects.requireNonNull(SnakeGameMain.class.getResource("/Music.png")).toURI().toString());
+            Image mutedImage = new Image(Objects.requireNonNull(SnakeGameMain.class.getResource("/Images/Music.png")).toURI().toString());
             musicImageView.setImage(mutedImage);
         }else {
             mediaView.getMediaPlayer().stop();
-            Image unmutedImage = new Image(Objects.requireNonNull(SnakeGameMain.class.getResource("/mutedMusic.png")).toURI().toString());
+            Image unmutedImage = new Image(Objects.requireNonNull(SnakeGameMain.class.getResource("/Images/mutedMusic.png")).toURI().toString());
             musicImageView.setImage(unmutedImage);
         }
 

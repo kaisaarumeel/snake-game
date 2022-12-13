@@ -38,7 +38,7 @@ public class GameOverController implements Initializable {
         lastPlayer = g.getScoreHandler().getLastPlayer();
         //Loading the fxml file that has the design of the scene
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(HowToPlayController.class.getResource("/GameOver.fxml"));
+        loader.setLocation(HowToPlayController.class.getResource("/FXMLfiles/GameOver.fxml"));
         Parent root = loader.load();
         root.setFocusTraversable(true);
         return new Scene(root);
