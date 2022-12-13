@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane onKeyPressed="#handleOnKeyPressed" prefHeight="750.0" prefWidth="700.0" stylesheets="@GameOverStylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group13.frontend.GameOverController">
+<AnchorPane onKeyPressed="#handleOnKeyPressed" prefHeight="750.0" prefWidth="700.0" stylesheets="@../GameOverStylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group13.frontend.GameOverController">
 
    <Rectangle arcHeight="50.0" arcWidth="50.0" height="300.0" layoutX="151.0" layoutY="201.0" stroke="#83b799" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="3.0" width="400.0" />
    <Label layoutX="241.0" layoutY="224.0" text="GAME OVER!" textAlignment="CENTER">

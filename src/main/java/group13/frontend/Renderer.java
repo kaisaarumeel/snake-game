@@ -13,8 +13,6 @@ import javafx.scene.paint.Stop;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-import java.io.FileInputStream;
-import java.util.List;
 import java.util.Objects;
 
 public class Renderer {
@@ -69,7 +67,7 @@ public class Renderer {
         if (mouseImage == null) {
             // If not, loads the image
             // FileInputStream inputstream = new FileInputStream("src/main/resources/mouse.png");
-            mouseImage = new Image(Objects.requireNonNull(SnakeGameMain.class.getResource("/mouse.png")).openStream(), 30, 30, false, false);
+            mouseImage = new Image(Objects.requireNonNull(SnakeGameMain.class.getResource("/Images/mouse.png")).openStream(), 30, 30, false, false);
             // inputstream.close();
         }
         // Renders the image

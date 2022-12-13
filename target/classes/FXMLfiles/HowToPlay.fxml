@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="700.0" stylesheets="@HowToPlayStylesheet.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group13.frontend.HowToPlayController">
+<AnchorPane prefHeight="700.0" prefWidth="700.0" stylesheets="@../HowToPlayStylesheet.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group13.frontend.HowToPlayController">
    <children>
       <Button graphicTextGap="10.0" layoutX="19.0" layoutY="9.0" mnemonicParsing="false" onAction="#backToMenuButtonClicked" prefHeight="41.0" prefWidth="151.0" text="BACK TO MENU" textAlignment="CENTER" textFill="black">         <font>
             <Font name="Impact" size="10.0" />
@@ -22,12 +22,12 @@
       </TextField>
       <ImageView fitHeight="102.0" fitWidth="151.0" layoutX="6.0" layoutY="118.0">
          <image>
-            <Image url="@arrowKeyboard.png" />
+            <Image url="@../Images/arrowKeyboard.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="102.0" fitWidth="151.0" layoutX="535.0" layoutY="119.0">
          <image>
-            <Image url="@wasdKeyboard.png" />
+            <Image url="@../Images/wasdKeyboard.png" />
          </image>
       </ImageView>
       <Line endX="672.0" endY="111.0" startX="15.0" startY="111.0" stroke="WHITE" />
@@ -53,12 +53,12 @@
       </TextArea>
       <ImageView fitHeight="91.0" fitWidth="96.0" layoutX="430.0" layoutY="264.0">
          <image>
-            <Image url="@trophy.png" />
+            <Image url="@../Images/trophy.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="59.0" fitWidth="76.0" layoutX="226.0" layoutY="544.0">
          <image>
-            <Image url="@mouse.png" />
+            <Image url="@../Images/mouse.png" />
          </image>
       </ImageView>
    </children>
