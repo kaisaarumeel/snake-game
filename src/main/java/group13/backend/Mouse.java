@@ -1,7 +1,9 @@
 package group13.backend;
-
+    /*
+     * The mouse is the food the snake eats.
+     * A mouse fills one tile in the field.
+     */
 public class Mouse {
-    //The mouse is the food the snake eats, it fills one tile in the field
     private Tile tile;
 
     public Mouse(Tile tile){
@@ -12,7 +14,4 @@ public class Mouse {
         return tile;
     }
 
-    public void setTile(Tile tile) {
-        this.tile = tile;
-    }
 }
