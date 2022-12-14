@@ -33,11 +33,8 @@ public class SnakeGame {
 
         //Back to Menu button on the bottom of the screen
         Button backToMenu = new Button("Back to Menu");
-        backToMenu.setTranslateX(570);
-        backToMenu.setTranslateY(710);
-        Font font = Font.font("Impact", FontWeight.BOLD, 15);
-        backToMenu.setFont(font);
-        backToMenu.setStyle("-fx-background-color: #FFF8DC; ");
+        backToMenu.setTranslateX(550);
+        backToMenu.setTranslateY(708);
         backToMenu.setFocusTraversable(false);
         backToMenu.setOnMousePressed(click -> {
             SnakeGameMain.showMenu();
@@ -49,7 +46,13 @@ public class SnakeGame {
         context = canvas.getGraphicsContext2D();
         root.getChildren().add(canvas);
         root.getChildren().add(backToMenu);
-        return new Scene(root);
+
+        Scene snakeGameScene = new Scene(root);
+
+        // Set css file for the scene
+        snakeGameScene.getStylesheets().add("SnakeGameStylesheet.css");
+
+        return snakeGameScene;
     }
 
     // Resets the game, discards old Field and Loop, creates new ones, and renders changes

@@ -21,7 +21,9 @@ public class GameOverController implements Initializable {
     @FXML
     private Button replay;
     @FXML
-    private Label enterName;
+    private Label enterName1;
+    @FXML
+    private Label enterName2;
     @FXML
     private Label score;
     @FXML
@@ -77,7 +79,8 @@ public class GameOverController implements Initializable {
     public void onTextFieldEnter(ActionEvent e){
         // Saves current player score
         game.getScoreHandler().addNewScore(playerNameField.getText(), scoreInt);
-        enterName.setText("SAVED! PLAY AGAIN?");
+        enterName2.setText("");
+        enterName1.setText("SCORE SAVED! WANT TO PLAY AGAIN?");
         replay.requestFocus();
     }
 }

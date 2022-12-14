@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane onKeyPressed="#handleOnKeyPressed" prefHeight="750.0" prefWidth="700.0" stylesheets="@../GameOverStylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group13.frontend.GameOverController">
+<AnchorPane onKeyPressed="#handleOnKeyPressed" prefHeight="750.0" prefWidth="700.0" stylesheets="@../GameOverStylesheet.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group13.frontend.GameOverController">
 
    <Rectangle arcHeight="50.0" arcWidth="50.0" height="300.0" layoutX="151.0" layoutY="201.0" stroke="#83b799" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="3.0" width="400.0" />
-   <Label layoutX="241.0" layoutY="224.0" text="GAME OVER!" textAlignment="CENTER">
+   <Label layoutX="247.0" layoutY="229.0" text="GAME OVER!" textAlignment="CENTER">
       <font>
          <Font name="Impact" size="51.0" />
       </font>
    </Label>
-   <Label fx:id="score" layoutX="300.0" layoutY="277.0" text="SCORE: " textAlignment="CENTER">
+   <Label fx:id="score" layoutX="300.0" layoutY="273.0" text="SCORE: " textAlignment="CENTER">
       <font>
          <Font name="Impact" size="34.0" />
       </font>
    </Label>
-   <Label fx:id="enterName" layoutX="180.0" layoutY="328.0" text="ENTER YOUR NAME TO SAVE YOUR SCORE:" textAlignment="CENTER">
+   <Label fx:id="enterName1" layoutX="201.0" layoutY="319.0" text="Type your name and press enter" textAlignment="CENTER">
       <font>
          <Font name="Impact" size="24.0" />
       </font>
@@ -30,7 +28,7 @@
       <font>
          <Font name="Impact" size="20.0" />
       </font></Button>
-   <TextField id="textField" fx:id="playerNameField" alignment="CENTER" focusTraversable="false" layoutX="247.0" layoutY="359.0" onAction="#onTextFieldEnter" prefHeight="32.0" prefWidth="209.0" style="-fx-background-color: #eee; -fx-border-color: #000000; -fx-border-width: 3;" text="Last Player">
+   <TextField id="textField" fx:id="playerNameField" alignment="CENTER" focusTraversable="false" layoutX="247.0" layoutY="376.0" onAction="#onTextFieldEnter" prefHeight="32.0" prefWidth="209.0" style="-fx-background-color: #eee; -fx-border-color: #000000; -fx-border-width: 3;" text="Last Player">
       <font>
          <Font name="Impact" size="20.0" />
       </font>
@@ -43,5 +41,10 @@
          <Font name="Impact" size="20.0" />
       </font>
    </Button>
+   <Label fx:id="enterName2" layoutX="259.0" layoutY="345.0" text="TO SAVE YOUR SCORE:" textAlignment="CENTER">
+      <font>
+         <Font name="Impact" size="24.0" />
+      </font>
+   </Label>
 
 </AnchorPane>
