@@ -17,7 +17,6 @@ import java.util.Objects;
 
 public class Renderer {
     public static Image mouseImage;
-    public static Image snakeHead;
     public static void render(Field field, GraphicsContext gc) throws Exception {
         // First render the field, paint the background black
         Color darkGray = Color.web("#1a1a1a");
@@ -33,10 +32,6 @@ public class Renderer {
         gc.setFill(darkGray);
         gc.fillRect(0, field.getHeight(), field.getWidth(), 50);
 
-       /* // render the food
-        gc.setFill(Color.PINK);
-        paintTile(field.getMouseTile(), gc);*/
-
         //setting the image for the mouse
         renderMouseImageTile(field, field.getMouseTile(), gc);
 
@@ -48,10 +43,11 @@ public class Renderer {
         for (int i = 1; i < snake.getSnakeBody().size(); i++) {
             renderTile(snake.getSnakeBody().get(i), gc);
         }
-        // snake.getSnakeBody().forEach(tile -> renderTile(tile, gc));
-        gc.setFill(Color.CORNSILK);
-        gc.fillText("Score: " + field.getTotalScore(), 9, field.getHeight() + 35);
-        gc.setFont(Font.font("Impact", FontWeight.BOLD, 25));
+
+        // Render the score
+        gc.setFill(Color.WHITE);
+        gc.fillText("Score: " + field.getTotalScore(), 15, field.getHeight() + 33);
+        gc.setFont(Font.font("Pixeboy", FontWeight.BOLD, 25));
     }
 
     private static void renderTile(Tile tile, GraphicsContext gc) {
