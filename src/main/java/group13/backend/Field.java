@@ -2,6 +2,7 @@ package group13.backend;
 
 import group13.SnakeGameMain;
 import group13.frontend.MenuController;
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -25,6 +26,13 @@ public class Field {
 
     private final Snake snake;
     private int score;
+
+
+    private MediaView gameOverMediaView;
+
+    private Media eatSoundEffect;
+
+
 
     public Field(){
         this.TILE_SIZE = 25;
@@ -142,13 +150,16 @@ public class Field {
      * at the position of the last tile of the tail.
      */
     public void grow() throws URISyntaxException {
-        String gameOverSound = (Objects.requireNonNull(SnakeGameMain.class.getResource("/eatSound.mp3"))).toURI().toString();
-        Media eatSoundEffect = new Media(gameOverSound);
+        if(eatSoundEffect == null){
+            String eatSound = (Objects.requireNonNull(SnakeGameMain.class.getResource("/eatSound.mp3"))).toURI().toString();
+            eatSoundEffect = new Media(eatSound);
+        }
+
         MediaPlayer mediaPlayer = new MediaPlayer(eatSoundEffect);
-        MediaView mediaView = new MediaView();
-        mediaView.setMediaPlayer(mediaPlayer);
+        MediaView eatMediaView = new MediaView();
+        eatMediaView.setMediaPlayer(mediaPlayer);
         if(soundEffect){
-            mediaView.getMediaPlayer().play();
+            eatMediaView.getMediaPlayer().play();
         }
 
         Tile tile;
@@ -181,30 +192,33 @@ public class Field {
      * The game is over once the snake collides with the borders or with itself.
      */
     public boolean gameOver() throws URISyntaxException {
+        if(gameOverMediaView == null){
             String gameOverSound = (Objects.requireNonNull(SnakeGameMain.class.getResource("/gameOverSound.mp3"))).toURI().toString();
-            Media eatSoundEffect = new Media(gameOverSound);
-            MediaPlayer mediaPlayer = new MediaPlayer(eatSoundEffect);
-            MediaView mediaView = new MediaView();
-            mediaView.setMediaPlayer(mediaPlayer);
+            Media gameOverSoundEffect = new Media(gameOverSound);
+            MediaPlayer mediaPlayer = new MediaPlayer(gameOverSoundEffect);
+            gameOverMediaView = new MediaView();
+            gameOverMediaView.setMediaPlayer(mediaPlayer);
+        }
 
-            // Check if the head of the snake collide with the border, if yes return true.
-            for (Tile tile : this.border) {
-                if (tile.equals(snake.getSnakeBody().get(0))) {
-                    if (soundEffect) {
-                        mediaView.getMediaPlayer().play();
-                    }
-                    return true;
+
+        // Check if the head of the snake collide with the border, if yes return true.
+        for (Tile tile : this.border) {
+            if (tile.equals(snake.getSnakeBody().get(0))) {
+                if (soundEffect) {
+                    gameOverMediaView.getMediaPlayer().play();
                 }
+                return true;
             }
-            // Check if the head of the snake collide with the snake body, if yes return true.
-            for (int i = 1; i < snake.getSnakeBody().size(); i++) {
-                if (snake.getSnakeBody().get(0).equals(snake.getSnakeBody().get(i))) {
-                    if (soundEffect) {
-                        mediaView.getMediaPlayer().play();
-                    }
-                    return true;
+        }
+        // Check if the head of the snake collide with the snake body, if yes return true.
+        for (int i = 1; i < snake.getSnakeBody().size(); i++) {
+            if (snake.getSnakeBody().get(0).equals(snake.getSnakeBody().get(i))) {
+                if (soundEffect) {
+                    gameOverMediaView.getMediaPlayer().play();
                 }
+                return true;
             }
+        }
         return false;
     }
 

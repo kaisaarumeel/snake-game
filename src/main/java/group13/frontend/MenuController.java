@@ -30,7 +30,7 @@ public class MenuController {
     private int soundPressedCounter = 1;
 
     SnakeGame game = new SnakeGame();
-    MediaView mediaView;
+    private MediaView mediaView;
 
 
     public void startGame() throws Exception {
