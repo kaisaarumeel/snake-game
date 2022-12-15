@@ -13,6 +13,8 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
+import java.awt.*;
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Objects;
 
@@ -31,6 +33,9 @@ public class MenuController {
 
     SnakeGame game = new SnakeGame();
     private MediaView mediaView;
+
+    public MenuController() throws IOException, FontFormatException {
+    }
 
 
     public void startGame() throws Exception {

@@ -8,7 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.awt.*;
 
+
+import java.io.InputStream;
 import java.util.Objects;
 
 public class SnakeGameMain extends Application {
@@ -36,6 +39,10 @@ public class SnakeGameMain extends Application {
 
         primaryStage.setScene(menuScene);
         primaryStage.show();
+
+
+
+
 
 
     }

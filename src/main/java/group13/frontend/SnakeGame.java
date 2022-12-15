@@ -1,5 +1,6 @@
 package group13.frontend;
 
+import group13.Main;
 import  group13.SnakeGameMain;
 import group13.backend.Field;
 import group13.backend.ScoreHandler;
@@ -13,19 +14,29 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+
+
+import javafx.scene.text.Font;
+
+import java.awt.*;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class SnakeGame {
     private GraphicsContext context;
+    private  Font font;
     private GameLoop loop;
     private Field field;
 
     private Canvas canvas;
     private final ScoreHandler scoreHandler;
 
-    public SnakeGame() {
+    public SnakeGame() throws IOException, FontFormatException {
         this.scoreHandler = new ScoreHandler();
+        String fName = "/Pixeboy-z8XGD.ttf";
+        InputStream is = Main.class.getResourceAsStream(fName);
+        font = Font.loadFont(is,12);
     }
 
     // Creates and returns a new scene
@@ -44,6 +55,7 @@ public class SnakeGame {
 
         canvas = new Canvas(700, 750);
         context = canvas.getGraphicsContext2D();
+        context.setFont(font);
         root.getChildren().add(canvas);
         root.getChildren().add(backToMenu);
 
@@ -116,4 +128,6 @@ public class SnakeGame {
     public GameLoop getLoop() {
         return loop;
     }
+
+
 }

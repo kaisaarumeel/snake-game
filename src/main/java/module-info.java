@@ -3,6 +3,7 @@ module group13 {
     requires javafx.fxml;
     requires com.fasterxml.jackson.databind;
     requires javafx.media;
+    requires java.desktop;
 
 
     opens group13 to javafx.fxml;
