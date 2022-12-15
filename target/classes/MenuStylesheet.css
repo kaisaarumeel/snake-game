@@ -1,8 +1,3 @@
-@font-face {
-    font-family: 'Pixeboy';
-    src: url('Pixeboy-z8XGD.ttf');
-}
-
 .root{
     -fx-font-family: "Pixeboy";
     -fx-background-color:
