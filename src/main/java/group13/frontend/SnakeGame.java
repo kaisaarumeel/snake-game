@@ -4,35 +4,25 @@ import group13.Main;
 import  group13.SnakeGameMain;
 import group13.backend.Field;
 import group13.backend.ScoreHandler;
-import group13.frontend.GameLoop;
-import group13.frontend.Renderer;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.text.FontWeight;
-
-
 import javafx.scene.text.Font;
-
-import java.awt.*;
-import java.io.IOException;
 import java.io.InputStream;
 
 public class SnakeGame {
     private GraphicsContext context;
-    private  Font font;
+    private final Font font;
     private GameLoop loop;
     private Field field;
 
     private Canvas canvas;
     private final ScoreHandler scoreHandler;
 
-    public SnakeGame() throws IOException, FontFormatException {
+    public SnakeGame(){
         this.scoreHandler = new ScoreHandler();
         String fName = "/Pixeboy-z8XGD.ttf";
         InputStream is = Main.class.getResourceAsStream(fName);
@@ -40,16 +30,14 @@ public class SnakeGame {
     }
 
     // Creates and returns a new scene
-    public Scene getScene() throws Exception {
+    public Scene getScene(){
 
-        //Back to Menu button on the bottom of the screen
+        //Back to Menu button at the bottom of the screen
         Button backToMenu = new Button("Back to Menu");
         backToMenu.setTranslateX(550);
         backToMenu.setTranslateY(708);
         backToMenu.setFocusTraversable(false);
-        backToMenu.setOnMousePressed(click -> {
-            SnakeGameMain.showMenu();
-        });
+        backToMenu.setOnMousePressed(click -> SnakeGameMain.showMenu());
 
         Group root = new Group();
 
@@ -82,7 +70,7 @@ public class SnakeGame {
     }
 
     // Starts the event listener for keyboard control -- NEEDS MORE RESEARCH AND POSSIBLY REFACTORING
-    public void startEventListener() throws Exception {
+    public void startEventListener(){
         this.canvas.setFocusTraversable(true);
         this.canvas.setOnKeyPressed(this::handleEvent);
     }
@@ -119,10 +107,6 @@ public class SnakeGame {
 
     public ScoreHandler getScoreHandler() {
         return this.scoreHandler;
-    }
-
-    public Field getField() {
-        return field;
     }
 
     public GameLoop getLoop() {

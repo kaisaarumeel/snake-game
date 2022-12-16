@@ -1,7 +1,6 @@
 package group13.frontend;
 
 import group13.SnakeGameMain;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,7 +17,7 @@ public class HowToPlayController {
     }
 
     //If the back to menu button is clicked, goes back to the menu
-    public void backToMenuButtonClicked(ActionEvent click){
+    public void backToMenuButtonClicked(){
         SnakeGameMain.showMenu();
     }
 }

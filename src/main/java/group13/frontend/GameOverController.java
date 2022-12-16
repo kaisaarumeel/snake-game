@@ -3,7 +3,6 @@ package group13.frontend;
 import group13.SnakeGameMain;
 import group13.backend.Field;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 import java.net.URL;
@@ -54,8 +54,8 @@ public class GameOverController implements Initializable {
     }
 
     public void handleOnKeyPressed(KeyEvent e) {
-        switch (e.getCode()) {
-            case ESCAPE -> SnakeGameMain.showMenu();
+        if (e.getCode() == KeyCode.ESCAPE) {
+            SnakeGameMain.showMenu();
         }
     }
 
@@ -76,7 +76,7 @@ public class GameOverController implements Initializable {
     }
 
     @FXML
-    public void onTextFieldEnter(ActionEvent e){
+    public void onTextFieldEnter(){
         // Saves current player score
         game.getScoreHandler().addNewScore(playerNameField.getText(), scoreInt);
         enterName2.setText("");

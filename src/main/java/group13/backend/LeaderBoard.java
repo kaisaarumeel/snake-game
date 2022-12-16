@@ -12,7 +12,7 @@ import java.util.List;
 
 public class LeaderBoard {
 
-        public static Scene getLeaderScene () throws Exception {
+        public static Scene getLeaderScene (){
 
         VBox leaderLayout = new VBox(8);
         leaderLayout.setPrefSize(700, 700);

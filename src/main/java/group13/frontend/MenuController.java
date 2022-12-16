@@ -12,9 +12,6 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
-
-import java.awt.*;
-import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Objects;
 
@@ -34,7 +31,7 @@ public class MenuController {
     SnakeGame game = new SnakeGame();
     private MediaView mediaView;
 
-    public MenuController() throws IOException, FontFormatException {
+    public MenuController(){
     }
 
 
@@ -44,7 +41,7 @@ public class MenuController {
         game.startGame();
     }
 
-    public void leaderBoard() throws Exception{
+    public void leaderBoard(){
         SnakeGameMain.stage.setScene(LeaderBoard.getLeaderScene());
         SnakeGameMain.stage.setTitle("Leader Board");
     }
@@ -104,11 +101,4 @@ public class MenuController {
 
     }
 
-    /*public static Scene getScene() {
-
-    }*/
-
-    public SnakeGame getGame() {
-        return game;
-    }
 }

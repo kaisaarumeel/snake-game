@@ -7,11 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
-import java.awt.*;
-
-
-import java.io.InputStream;
 import java.util.Objects;
 
 public class SnakeGameMain extends Application {
@@ -19,7 +14,6 @@ public class SnakeGameMain extends Application {
     public static Scene menuScene;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // FileInputStream inputstream = new FileInputStream("src/main/resources/SnakeGameIcon - Copy.png");
         Image icon = new Image(Objects.requireNonNull(SnakeGameMain.class.getResource("/Images/SnakeGameIcon - Copy.png")).openStream());
         primaryStage.getIcons().add(icon);
 
@@ -28,7 +22,7 @@ public class SnakeGameMain extends Application {
         primaryStage.setOnCloseRequest(e -> System.exit(0));
 
         stage = primaryStage;
-        Parent root = FXMLLoader.load(SnakeGameMain.class.getResource("/FXMLfiles/Menu.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(SnakeGameMain.class.getResource("/FXMLfiles/Menu.fxml")));
         menuScene = new Scene(root);
 
         menuScene.getStylesheets().add("MenuStylesheet.css");
@@ -39,18 +33,11 @@ public class SnakeGameMain extends Application {
 
         primaryStage.setScene(menuScene);
         primaryStage.show();
-
-
-
-
-
-
     }
     public static void showMenu(){
         stage.setScene(menuScene);
         stage.setTitle("Snake Game Menu");
     }
-
 
     public static void main(String[] args) {
         launch();

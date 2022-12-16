@@ -1,7 +1,5 @@
 package group13.backend;
 
-import group13.backend.Direction;
-import javafx.scene.shape.Rectangle;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -12,7 +10,7 @@ import java.util.Arrays;
 
 public class Snake{
 
-    private ArrayList <Tile> snakeBody;
+    private final ArrayList <Tile> snakeBody;
     private Direction direction;
 
     /*
