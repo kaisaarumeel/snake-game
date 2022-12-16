@@ -1,8 +1,6 @@
 package group13.backend;
 
 import group13.SnakeGameMain;
-import group13.frontend.MenuController;
-import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -89,16 +87,17 @@ public class Field {
         if (snake.getDirection() != null){
             Tile tile;
             if (snake.getDirection().equals(Direction.UP)){
-                tile = new Tile(snake.getSnakeBody().get(0).getX(), snake.getSnakeBody().get(0).getY() - TILE_SIZE);
+                tile = new Tile(snake.getSnakeBody().get(0).x(), snake.getSnakeBody().get(0).y() - TILE_SIZE);
             } else if (snake.getDirection().equals(Direction.DOWN)) {
-                tile = new Tile(snake.getSnakeBody().get(0).getX(), snake.getSnakeBody().get(0).getY() + TILE_SIZE);
+                tile = new Tile(snake.getSnakeBody().get(0).x(), snake.getSnakeBody().get(0).y() + TILE_SIZE);
             } else if (snake.getDirection().equals(Direction.RIGHT)) {
-                tile = new Tile(snake.getSnakeBody().get(0).getX() + TILE_SIZE, snake.getSnakeBody().get(0).getY());
+                tile = new Tile(snake.getSnakeBody().get(0).x() + TILE_SIZE, snake.getSnakeBody().get(0).y());
             } else {
-                tile = new Tile(snake.getSnakeBody().get(0).getX() - TILE_SIZE, snake.getSnakeBody().get(0).getY());
+                tile = new Tile(snake.getSnakeBody().get(0).x() - TILE_SIZE, snake.getSnakeBody().get(0).y());
             }
-            snake.getSnakeBody().add(0, tile);
             snake.getSnakeBody().remove(snake.getSnakeBody().get(snake.getSnakeBody().size()-1));
+            snake.getSnakeBody().add(0, tile);
+
         }
     }
 
@@ -138,15 +137,15 @@ public class Field {
         //If mouse spawn position is at snake position then redo the process until you find a position not on the snake
         Tile tile;
         do {
-            int x = (int) random.nextInt(this.width / TILE_SIZE) * TILE_SIZE;
-            int y = (int) random.nextInt(this.height / TILE_SIZE) * TILE_SIZE;
+            int x = random.nextInt(this.width / TILE_SIZE) * TILE_SIZE;
+            int y = random.nextInt(this.height / TILE_SIZE) * TILE_SIZE;
             tile = new Tile(x, y);
         } while (this.snake.getSnakeBody().contains(tile) || this.border.contains(tile));
         this.mouse = new Mouse(tile);
     }
 
     /*
-     * The grow() function adds a tile to the snake body
+     * The growth() function adds a tile to the snake body
      * at the position of the last tile of the tail.
      */
     public void grow() throws URISyntaxException {
@@ -163,7 +162,7 @@ public class Field {
         }
 
         Tile tile;
-        tile = new Tile(snake.getSnakeBody().get(snake.getSnakeBody().size()-1).getX(), snake.getSnakeBody().get(snake.getSnakeBody().size()-1).getY());
+        tile = new Tile(snake.getSnakeBody().get(snake.getSnakeBody().size()-1).x(), snake.getSnakeBody().get(snake.getSnakeBody().size()-1).y());
         snake.getSnakeBody().add(snake.getSnakeBody().size()-1, tile);
     }
     /*
@@ -172,7 +171,7 @@ public class Field {
      * and the score is increased by one point.
      */
     public void eatMouse() throws URISyntaxException {
-        if (snake.getSnakeBody().get(0).equals(mouse.getTile())) {
+        if (snake.getSnakeBody().get(0).equals(mouse.tile())) {
             this.grow();
             spawnMouse();
             score++;
@@ -223,7 +222,7 @@ public class Field {
     }
 
     public Tile getMouseTile() {
-        return this.mouse.getTile();
+        return this.mouse.tile();
     }
 
     public Snake getSnake() {
