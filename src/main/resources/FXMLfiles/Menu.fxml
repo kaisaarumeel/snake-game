@@ -17,7 +17,7 @@
       </Label>
       <ImageView fitHeight="312.0" fitWidth="584.0" layoutX="3.0" layoutY="-12.0">
          <image>
-            <Image url="@../Images/NewSnake.png" />
+            <Image url="@../Images/snake.png" />
          </image>
       </ImageView>
       <Button layoutX="226.0" layoutY="450.0" mnemonicParsing="false" onAction="#leaderBoard" prefHeight="41.0" prefWidth="147.0" text="Leader board">
