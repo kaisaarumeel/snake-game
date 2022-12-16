@@ -51,14 +51,19 @@
             <Font name="Impact" size="28.0" />
          </font>
       </TextArea>
-      <ImageView fitHeight="91.0" fitWidth="96.0" layoutX="430.0" layoutY="264.0">
-         <image>
-            <Image url="@../Images/trophy.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="59.0" fitWidth="76.0" layoutX="226.0" layoutY="544.0">
+      <ImageView fitHeight="41.0" fitWidth="37.0" layoutX="592.0" layoutY="558.0">
          <image>
             <Image url="@../Images/mouse.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="312.0" fitWidth="496.0" layoutX="42.0" layoutY="300.0">
+         <image>
+            <Image url="@../Images/howToPlaySnake.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="286.0" fitWidth="535.0" layoutX="79.0" layoutY="275.0">
+         <image>
+            <Image url="@../Images/howToPlaySnake2.png" />
          </image>
       </ImageView>
    </children>
