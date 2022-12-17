@@ -1,10 +1,14 @@
 package group13.frontend;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import group13.SnakeGameMain;
 import group13.backend.Field;
 import javafx.application.Platform;
 import javafx.scene.canvas.GraphicsContext;
+
+/**
+ * The GameLoop class contains the game loop, which is an infinite loop that runs continuously as long as the game
+ * is running. It implements the Runnable interface which allows it to be executed by a thread.
+ */
 
 public class GameLoop implements Runnable {
     // value determining the number of updates per second (UPS)
@@ -26,6 +30,14 @@ public class GameLoop implements Runnable {
         this.keyDown = false;
     }
 
+    /**
+     * The run() method is from the Runnable interface. It contains the game loop.
+     * The most important processes that occur in the game loop are checking if the game should be over, update, and
+     * render. Each iteration of the loop takes a predefined amount of time, which makes the snake move at an even speed.
+     * This is achieved by keeping track of the time it took to complete all tasks in an iteration and then comparing that
+     * to the optimal time an iteration should take, calculating the difference, and waiting for that amount of time before
+     * starting the next iteration.
+     */
     @Override
     public void run() {
         while(!paused) {
@@ -37,9 +49,6 @@ public class GameLoop implements Runnable {
                 if (this.field.gameOver()) {
                     paused = true;
                     // if the game is over, it will pop up game over text
-                    // GameOverController.GameOver(field, context);
-
-                    // Need this so we can change the scene -- Is there a better solution?
                     Platform.runLater(() -> {
                         try {
                             SnakeGameMain.stage.setScene(GameOverController.getScene(field, game));
@@ -47,16 +56,8 @@ public class GameLoop implements Runnable {
                             System.out.println(e.getMessage());
                         }
                     });
-
-                    // This is only for testing, prints top 5 scores in json format to console
-                    ObjectMapper objectMapper = new ObjectMapper();
-                    System.out.println(objectMapper.writeValueAsString(game.getScoreHandler().getHighScoreList(5)));
-
-                    // Another test, print last entered player
-                    System.out.println(game.getScoreHandler().getLastPlayer());
                     break;
                 }
-
                 field.update();
                 Renderer.render(field, context);
 
@@ -65,6 +66,7 @@ public class GameLoop implements Runnable {
             }
 
             // Check how long it took to update
+
             // The time it actually took for the loop to update and render
             double updateTime = System.currentTimeMillis() - timeAtStart;
             // If it took less time than the optimal update time, check the difference, and wait for that amount of time
@@ -76,7 +78,6 @@ public class GameLoop implements Runnable {
                     e.printStackTrace();
                 }
             }
-
             keyDown = false;
         }
     }
