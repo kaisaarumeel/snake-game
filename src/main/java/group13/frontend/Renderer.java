@@ -15,8 +15,24 @@ import javafx.scene.text.FontWeight;
 
 import java.util.Objects;
 
+/**
+ * The Renderer class draws the elements of the snake game (snake, mouse, borders, score) to the canvas created in
+ * the SnakeGame class.
+ * The render() function is called in every iteration of the game loop, so it redraws the screen every time.
+ */
 public class Renderer {
     public static Image mouseImage;
+
+    /**
+     * The function for rendering the elements of the game using GraphicsContext.
+     * @param field
+     * The field parameter is used to determine the size of the Field that needs to be drawn, as well as accessing the
+     * border and the snake
+     * @param gc
+     * The gc parameter is for the GraphicsContext, that is used to draw the elements of the game.
+     * @throws Exception
+     * The method renderMouseImageTile can throw an exception
+     */
     public static void render(Field field, GraphicsContext gc) throws Exception {
         // First render the field, paint the background black
         Color darkGray = Color.web("#1a1a1a");
@@ -41,7 +57,7 @@ public class Renderer {
         //render the snake
         setFillGradient(gc);
         for (int i = 1; i < snake.getSnakeBody().size(); i++) {
-            renderTile(snake.getSnakeBody().get(i), gc);
+            renderSnakeTile(snake.getSnakeBody().get(i), gc);
         }
 
         // Render the score
@@ -50,27 +66,56 @@ public class Renderer {
         gc.setFont(Font.font("Pixeboy", FontWeight.BOLD, 25));
     }
 
-    private static void renderTile(Tile tile, GraphicsContext gc) {
+    /**
+     * Renders a single tile for the snake's body
+     * @param tile
+     * The tile paramter is used to access the coordinates of the tile that's to be rendered.
+     * @param gc
+     * The gc parameter is for the GraphicsContext, that is used to draw the tile.
+     */
+    private static void renderSnakeTile(Tile tile, GraphicsContext gc) {
         gc.fillRoundRect(tile.x(), tile.y(), 25, 25, 15, 25);
-       // gc.fillRect(tile.getX(), tile.getY(), 25, 25);
     }
 
+    /**
+     * Renders a single border tile. Compared to the renderSnakeTile() method this one draws a rectangle.
+     * @param tile
+     * The tile paramter is used to access the coordinates of the tile that's to be rendered.
+     * @param gc
+     * The gc parameter is for the GraphicsContext, that is used to draw the tile.
+     */
     private static void renderBorderTile(Tile tile, GraphicsContext gc) {
         gc.fillRect(tile.x(), tile.y(), 25, 25);
     }
+
+    /**
+     * Renders the image of the mouse. First it loads the image if it's not loaded yet.
+     * @param field
+     * The field parameter is used to determine the location where the mouse should be rendered.
+     * @param gc
+     * The gc parameter is for the GraphicsContext, that is used to draw the mouse image.
+     * @throws Exception
+     * In case the mouseImage file cannot be found the method throws an exception.
+     */
     private static void renderMouseImageTile(Field field, GraphicsContext gc) throws Exception {
         // First checks if the image for the mouse has been loaded or not
         if (mouseImage == null) {
             // If not, loads the image
-            // FileInputStream inputstream = new FileInputStream("src/main/resources/mouse.png");
             mouseImage = new Image(Objects.requireNonNull(SnakeGameMain.class.getResource("/Images/mouse.png")).openStream(), 30, 30, false, false);
-            // inputstream.close();
         }
         // Renders the image
         gc.drawImage(mouseImage, field.getMouseTile().x(), field.getMouseTile().y());
     }
 
-    //Renders the snake head to have eyes, changes the fill depending on the direction of the snake
+    /**
+     * Renders the snake head to have eyes, changes the fill depending on the direction of the snake
+     * @param field
+     * The field parameter is used to determine the direction of the snake.
+     * @param tile
+     * The tile parameter corresponds to the head of the snake, it is used to determine the location of the tile.
+     * @param gc
+     * The gc parameter is for the GraphicsContext, that is used to draw the snake's head.
+     */
     private static void renderSnakeHead(Field field, Tile tile, GraphicsContext gc){
         setFillGradient(gc);
         gc.fillRoundRect(tile.x(), tile.y(), 25, 25, 15, 25);
@@ -95,13 +140,18 @@ public class Renderer {
         }
     }
 
+    /**
+     * Uses the setFill() method to set the fill to a radial gradient which is used to draw the snake's body and head.
+     * @param gc
+     * The gc parameter is for the GraphicsContext, that is used to set the gradient.
+     */
     public static void setFillGradient(GraphicsContext gc) {
         Stop[] stops1 = new Stop[] { new Stop(0, Color.web("#B5FBD2")),
                 new Stop(1, Color.web("#242926"))};
 
-        RadialGradient lg1 = new RadialGradient(0, 0, 0.5, 0.5, 0.8, true,
+        RadialGradient radialGradient = new RadialGradient(0, 0, 0.5, 0.5, 0.8, true,
                 CycleMethod.NO_CYCLE, stops1);
 
-        gc.setFill(lg1);
+        gc.setFill(radialGradient);
     }
 }

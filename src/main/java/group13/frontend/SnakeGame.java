@@ -13,6 +13,12 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Font;
 import java.io.InputStream;
 
+/**
+ * The SnakeGame class contains the main snake game. It includes the GameLoop, the Field as well as the ScoreHandler
+ * via composition. It has methods for creating a snake game scene, resetting the game, and it also handles keypresses
+ * via an event listener.
+ */
+
 public class SnakeGame {
     private GraphicsContext context;
     private final Font font;
@@ -29,7 +35,10 @@ public class SnakeGame {
         font = Font.loadFont(is,12);
     }
 
-    // Creates and returns a new scene
+    /**
+     * The getScene method creates the scene for the game, adds a back button, loads the css for styling, and finally
+     * returns the scene.
+     */
     public Scene getScene(){
 
         //Back to Menu button at the bottom of the screen
@@ -37,7 +46,10 @@ public class SnakeGame {
         backToMenu.setTranslateX(550);
         backToMenu.setTranslateY(708);
         backToMenu.setFocusTraversable(false);
-        backToMenu.setOnMousePressed(click -> SnakeGameMain.showMenu());
+        backToMenu.setOnMousePressed(click -> {
+            loop.setPaused(true);
+            SnakeGameMain.showMenu();
+        });
 
         Group root = new Group();
 
@@ -55,25 +67,41 @@ public class SnakeGame {
         return snakeGameScene;
     }
 
-    // Resets the game, discards old Field and Loop, creates new ones, and renders changes
+    /**
+     * Resets the game, discards old Field and Loop, creates new ones, and renders changes
+     * @throws Exception
+     * The method render() from the Renderer can throw an exception
+     */
     public void reset() throws Exception {
         field = new Field();
         loop = new GameLoop(this, field, context);
         Renderer.render(field, context);
     }
 
-    // Resets the game, starts event listener and starts the GameLoop
+    /**
+     * Resets the game, starts event listener and starts the GameLoop
+     * @throws Exception
+     * The reset() method can throw an exception.
+     */
     public void startGame() throws Exception {
         this.reset();
         this.startEventListener();
         (new Thread(loop)).start();
     }
 
-    // Starts the event listener for keyboard control -- NEEDS MORE RESEARCH AND POSSIBLY REFACTORING
+    /**
+     * Starts the event listener for keyboard control
+     */
     public void startEventListener(){
         this.canvas.setFocusTraversable(true);
         this.canvas.setOnKeyPressed(this::handleEvent);
     }
+
+    /**
+     * Handles keypress events to control the movement of the snake
+     * @param e
+     * The parameter e is the KeyEvent that's passed in, and is used to determine which key has been pressed.
+     */
     public void handleEvent(KeyEvent e) {
         if (loop.isKeyDown()) {
             return;
