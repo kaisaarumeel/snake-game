@@ -5,8 +5,9 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
-
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 import java.util.Map;
 import java.util.List;
 
@@ -14,23 +15,25 @@ public class LeaderBoard {
 
         public static Scene getLeaderScene (){
 
-        VBox leaderLayout = new VBox(8);
+        GridPane leaderLayout = new GridPane();
         leaderLayout.setPrefSize(700, 700);
         leaderLayout.setAlignment(Pos.CENTER);
+        leaderLayout.getRowConstraints().add(new RowConstraints(0));
 
-        Button backToMenu = new Button("Back To Menu");
-        backToMenu.setOnMousePressed(e -> {
-                    try {
-                        SnakeGameMain.showMenu();
-                    } catch (Exception e1) {
-                        System.out.println("Please try again later");
-                    }
-                }
-        );
+            leaderLayout.setStyle("-fx-background-color:" +
+                    "            linear-gradient(#3a3838, #ababab)," +
+                    "            linear-gradient(#000000, #5b5550)," +
+                    "            linear-gradient(from 0% 0% to 30% 50%, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0));");
 
-        ScoreHandler handler = new ScoreHandler();
-        List<Map<String, Object>> LeaderList = handler.getHighScoreList(13);
 
+            // Creating a ScoreHandler in order to obtain a list of the highest results scored by users.
+            ScoreHandler handler = new ScoreHandler();
+            List<Map<String, Object>> LeaderList = handler.getHighScoreList(13);
+
+            /*
+             * For loop in order to display the highest scores, from the highest to the lowest.
+             * Max. 13 results, or fewer, as obtained in the LeaderList, depending on the amount of saved scores.
+             */
             for( int i = 0; i < LeaderList.size(); i++){
                 String player = (String) LeaderList.get(i).get("name");
                 int score = (Integer) LeaderList.get(i).get("score");
@@ -40,6 +43,9 @@ public class LeaderBoard {
                 Label result = new Label(display);
                 result.setPrefSize(300, 35);
                 leaderLayout.getChildren().addAll(result);
+
+                GridPane.setConstraints(result, 1, j);
+                leaderLayout.getRowConstraints().add(new RowConstraints(45));
 
                 result.setStyle("-fx-background-color: #000000; " +
                         "-fx-text-fill: #ffffff;" +
@@ -52,15 +58,23 @@ public class LeaderBoard {
                         "-fx-text-alignment: center;");
             }
 
-            //Styling of the Leader Board
+            Button backToMenu = new Button("Back To Menu");
 
-            leaderLayout.setStyle("-fx-background-color:" +
-                    "            linear-gradient(#3a3838, #ababab)," +
-                    "            linear-gradient(#000000, #5b5550)," +
-                    "            linear-gradient(from 0% 0% to 30% 50%, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0));\n");
+            GridPane.setColumnIndex(backToMenu, 2);
+            leaderLayout.getColumnConstraints().add(new ColumnConstraints(150));
+            GridPane.setRowIndex(backToMenu, 14);
+
+            backToMenu.setOnMousePressed(e -> {
+                        try {
+                            SnakeGameMain.showMenu();
+                        } catch (Exception e1) {
+                            System.out.println("Please try again later");
+                        }
+                    }
+            );
 
             backToMenu.setStyle(
-                    "-fx-background-color: " +
+                    "-fx-background-color:" +
                     "   linear-gradient(#83B799, #83B799)," +
                     "   linear-gradient(#83B799, #83B799)," +
                     "   linear-gradient(#83B799, #83B799)," +
@@ -73,10 +87,10 @@ public class LeaderBoard {
                     "    -fx-font-size: 20px;" +
                     "    -fx-padding: 15 20 15 20;" +
                     "    -fx-font-family: 'Pixeboy';" +
-                    "    src: url('Pixeboy-z8XGD.ttf')");
+                    "    src: url('Pixeboy-z8XGD.ttf');");
 
-            leaderLayout.getChildren().addAll(backToMenu);
-        SnakeGameMain.stage.show();
+            leaderLayout.getChildren().add(backToMenu);
+
         return new Scene(leaderLayout);
         }
 
