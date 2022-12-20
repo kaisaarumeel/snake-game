@@ -46,13 +46,14 @@ public class GameOverController implements Initializable {
         return new Scene(root);
     }
 
+    //Obtaining all the information needed for the Game Over scene.
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         score.setText("SCORE: " + scoreInt);
         playerNameField.setText(lastPlayer);
         Platform.runLater(() -> playerNameField.requestFocus());
     }
-
+    //Enabling to go back to menu with the Escape key.
     public void handleOnKeyPressed(KeyEvent e) {
         if (e.getCode() == KeyCode.ESCAPE) {
             SnakeGameMain.showMenu();
