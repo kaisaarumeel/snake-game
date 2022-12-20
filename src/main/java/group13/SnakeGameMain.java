@@ -17,10 +17,6 @@ public class SnakeGameMain extends Application {
         Image icon = new Image(Objects.requireNonNull(SnakeGameMain.class.getResource("/Images/SnakeGameIcon - Copy.png")).openStream());
         primaryStage.getIcons().add(icon);
 
-        primaryStage.setTitle("Snake Game");
-        primaryStage.setResizable(false);
-        primaryStage.setOnCloseRequest(e -> System.exit(0));
-
         stage = primaryStage;
         Parent root = FXMLLoader.load(Objects.requireNonNull(SnakeGameMain.class.getResource("/FXMLfiles/Menu.fxml")));
         menuScene = new Scene(root);

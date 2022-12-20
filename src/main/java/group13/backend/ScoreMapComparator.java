@@ -10,6 +10,10 @@ public class ScoreMapComparator implements Comparator<Map<String, Object>> {
         this.key = key;
     }
 
+    /**
+     * Method created to compare scores, used in ScoreHandler in method getHighScoreList(), to put the scores in the
+     * right order - from the highest to the lowest
+     */
     @Override
     public int compare(Map<String, Object> o1, Map<String, Object> o2) {
         Integer valueOne = (Integer) o1.get(key);

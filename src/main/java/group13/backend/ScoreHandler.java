@@ -25,6 +25,7 @@ public class ScoreHandler {
 
     }
 
+    //Adding the newest score and the name of the player, who obtained it, to the list.
     public void addNewScore(String playerName, int score) {
         this.scoreList.add(new HashMap<>() {
             {
@@ -66,7 +67,10 @@ public class ScoreHandler {
         }
     }
 
-    // Method to return a specified number of top scores sorted
+    /**
+     * Method to return a sorted list of thirteen highest scores obtained if there are more. If there are fewer scores
+     * than or exactly 13, all of them are returned in the right order - from the highest to the lowest.
+     */
     public List<Map<String, Object>> getHighScoreList(int topNum) {
         // first load json, in case there are changes
         this.loadScore();

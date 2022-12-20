@@ -20,13 +20,14 @@ public class LeaderBoard {
         leaderLayout.setAlignment(Pos.CENTER);
         leaderLayout.getRowConstraints().add(new RowConstraints(0));
 
+            //Styling the background of the scene.
             leaderLayout.setStyle("-fx-background-color:" +
                     "            linear-gradient(#3a3838, #ababab)," +
                     "            linear-gradient(#000000, #5b5550)," +
                     "            linear-gradient(from 0% 0% to 30% 50%, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0));");
 
 
-            // Creating a ScoreHandler in order to obtain a list of the highest results scored by users.
+            //Creating a ScoreHandler in order to obtain a list of the highest results scored by users.
             ScoreHandler handler = new ScoreHandler();
             List<Map<String, Object>> LeaderList = handler.getHighScoreList(13);
 
@@ -38,6 +39,12 @@ public class LeaderBoard {
                 String player = (String) LeaderList.get(i).get("name");
                 int score = (Integer) LeaderList.get(i).get("score");
 
+                /**
+                 * Obtaining the position of the score in the list to display its position within all the results
+                 * by adding 1 to i variable (there can be no score at #0). New integer since 1 has to be added to get
+                 * an actual position of the result. It also allows to display just the saved scores instead of showing
+                 * 13 but with some of them empty.
+                 */
                 int j=i+1;
                 String display = ("#" + j +" " + player + ", " + score);
                 Label result = new Label(display);
@@ -47,6 +54,7 @@ public class LeaderBoard {
                 GridPane.setConstraints(result, 1, j);
                 leaderLayout.getRowConstraints().add(new RowConstraints(45));
 
+                //Styling of one single result displayed.
                 result.setStyle("-fx-background-color: #000000; " +
                         "-fx-text-fill: #ffffff;" +
                         "-fx-font-size: 30px;" +
@@ -58,6 +66,7 @@ public class LeaderBoard {
                         "-fx-text-alignment: center;");
             }
 
+            //Creating a "Back to Menu" button.
             Button backToMenu = new Button("Back To Menu");
 
             GridPane.setColumnIndex(backToMenu, 2);
@@ -73,6 +82,7 @@ public class LeaderBoard {
                     }
             );
 
+            //Styling the "Back to Menu" button.
             backToMenu.setStyle(
                     "-fx-background-color:" +
                     "   linear-gradient(#83B799, #83B799)," +

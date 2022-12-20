@@ -61,6 +61,10 @@ public class MenuController {
 
     }
 
+    /**
+     *Both sound() and music() methods enable a user to decide whether they want to use the sounds effects and music,
+     * respectively. Both are muted by default.
+     */
 
     public void sound() throws URISyntaxException {
         soundPressedCounter += 1;
