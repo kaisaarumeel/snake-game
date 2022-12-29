@@ -1,7 +1,6 @@
 package group13.frontend;
 
 import group13.SnakeGameMain;
-import group13.backend.LeaderBoard;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

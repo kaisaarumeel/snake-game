@@ -1,6 +1,7 @@
-package group13.backend;
+package group13.frontend;
 
 import group13.SnakeGameMain;
+import group13.backend.ScoreHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
