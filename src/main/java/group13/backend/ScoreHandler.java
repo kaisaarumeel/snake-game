@@ -1,6 +1,8 @@
 package group13.backend;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -42,13 +44,10 @@ public class ScoreHandler {
         // First check if the json file exists
         File scoresDataFile = null;
         try {
-            scoresDataFile = new File(Objects.requireNonNull(ScoreHandler.class.getResource("/scores.json")).toURI());
+            String homeDir = System.getProperty("user.home");
+            scoresDataFile = new File(homeDir + "/scores.json");
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        if (!Objects.requireNonNull(scoresDataFile).exists() || scoresDataFile.length() == 0) {
-            // If it doesn't exist there's nothing to load so return, will create file when saving the score
-            return;
         }
         try {
             this.scoreList = objectMapper.readValue(scoresDataFile, this.scoreList.getClass());
@@ -60,7 +59,8 @@ public class ScoreHandler {
     // Saves the current list of scores to the json file
     public void saveScore() {
         try {
-            File scoresDataFile = new File(Objects.requireNonNull(ScoreHandler.class.getResource("/scores.json")).toURI());
+            String homeDir = System.getProperty("user.home");
+            File scoresDataFile = new File(homeDir + "/scores.json");
             objectMapper.writeValue(Paths.get(scoresDataFile.toURI()).toFile(), this.scoreList);
         } catch (Exception e) {
             e.printStackTrace();
