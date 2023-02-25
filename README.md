@@ -1,5 +1,15 @@
-# snake-game
-# snake-game
+<h1 align="center" style=""> Welcome to the Snake Game! 🐍 </h1>
+
+
+<p align="center">
+<img width="193" alt="snake" src="https://user-images.githubusercontent.com/113339617/221372318-97b56252-44db-47df-afab-e511d3633cc0.png">
+</p>
+
+#
+
+
+
+
 
 #### <ins>**The Snake Game**</ins>
 
